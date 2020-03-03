@@ -28,7 +28,7 @@ const columns = [
       dataIndex: 'first_name',
       render: (text, record) => (
         <span>
-          <p>{text+ " " +record.last_name}</p>
+          <p>{(text ? text : '') + " " + (record.last_name ? record.last_name : '' )}</p>
         </span>
       ),
       sorter: {

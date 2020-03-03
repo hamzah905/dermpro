@@ -16,10 +16,8 @@ class PatitenDetail extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     axios.get(`${baseURL}/patients/${parseInt(this.props.match.params.patient_id)}`)
       .then(res => {
-        debugger
         var patient = res.data.data.user;
         this.setState({ patient });
       })
@@ -42,7 +40,7 @@ class PatitenDetail extends React.Component {
         </div>
         <div className="custom-detail-section custom-job-section">
         <Descriptions>
-          <Descriptions.Item label="Full Name">{patient.first_name} {patient.last_name}</Descriptions.Item>
+          <Descriptions.Item label="Patient Name">{patient.first_name} {patient.last_name}</Descriptions.Item>
           <Descriptions.Item label="Email">{patient.email}</Descriptions.Item>
           <Descriptions.Item label="Gender">{patient.gender}</Descriptions.Item>
           <Descriptions.Item label="Date of Birth">{patient.dob}</Descriptions.Item>

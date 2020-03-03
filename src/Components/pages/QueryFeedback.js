@@ -9,14 +9,22 @@ import {baseURL} from "../../utils";
 const { TextArea } = Input;
 
 class ApplyJobForm extends React.Component {
-  state = { message: "", loading: false };
+  state = { message: "", loading: false, query_spot: { images: []} };
+
+  componentDidMount() {
+    axios.get(`${baseURL}/query_spots/${parseInt(this.props.match.params.query_spot_id)}`)
+      .then(res => {
+        var query_spot = res.data.data.query_spot;
+        this.setState({ query_spot: query_spot });
+        // debugger
+      })
+  }
 
   handleSubmit = event => {
     event.preventDefault();
     this.props.form.validateFields((err, values) => {
       if(!err){
       this.setState({loading: true})
-      debugger
       axios
         .post(
           `${baseURL}/query_spots/${parseInt(
@@ -39,12 +47,21 @@ class ApplyJobForm extends React.Component {
       }
     });
   };
-  
+
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { query_spot } = this.state;
+    // var { images } = query_spotz.images;
+    console.log(query_spot.iamges,"hjvbdsnalmfd l")
     return (
       <div className="container">
-
+        <div className="row">
+        { query_spot.images.map((image, index)=>
+          <div key = {index} className="custom-detail-section custom-blog-section">
+            <img src={`https://dermpro.herokuapp.com/${image}`} alt="new" className="custom-query-spot-image"/>
+          </div>
+        )}
+        </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
         <div className="custom-detail-section">
           <Form
@@ -55,7 +72,7 @@ class ApplyJobForm extends React.Component {
             <Row>
              
               <Col key="message">
-                <Form.Item name={`message`} label={`Description`}>
+                <Form.Item name={`message`} label={`Doctor's Feedback`}>
                   {getFieldDecorator(`message`)(<TextArea rows={4} placeholder="Put your descriptive feedback here..." />)}
                 </Form.Item>
               </Col>
@@ -67,7 +84,7 @@ class ApplyJobForm extends React.Component {
                     type="primary"
                     htmlType="submit"
                   >
-                    Feedback
+                    Submit
                   </Button>
                 </div>
               </Col>

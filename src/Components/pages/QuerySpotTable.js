@@ -30,14 +30,17 @@ const columns = [
         // multiple: 7,
       },
     },
-    // {
-    //   title: 'images',
-    //   dataIndex: 'images',     
-    //   sorter: {
-    //     compare: (a, b) => a.last_name - b.last_name,
-    //     // multiple: 6,
-    //   },
-    // },
+    {
+      title: 'images',
+      dataIndex: 'images',
+      render: (text, record) => (
+      <p>{text.length}</p>
+      ),  
+      sorter: {
+        compare: (a, b) => a.last_name - b.last_name,
+        // multiple: 6,
+      },
+    },
     {
       title: 'Created At',
       dataIndex: 'created_at',
@@ -85,7 +88,6 @@ class QuerySpot extends React.Component {
     // }
   
     componentDidMount() {
-        debugger
       this.setState({query_spots: this.props.query_spots, loading: false})
     }
 

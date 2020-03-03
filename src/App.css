@@ -474,12 +474,7 @@ align-items: center;
   color: #ffffff !important;
 }
 
-/* .ant-menu.ant-menu-dark .ant-menu-item-selected .custom-sidebar-link:visited{
-  color:#ffffff;
+.custom-query-spot-image{
+  height: 400px;
+  min-width: 100px;
 }
-
-.custom-sidebar-link:hover,
-.custom-sidebar-link:active,
-.custom-sidebar-link:focus{
-color: #ffffff;
-} */
