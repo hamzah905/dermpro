@@ -34,7 +34,7 @@ class RightMenu extends Component {
           <a href="/">Signin</a>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/">Signin</a>
+          <a href="/">Sign Up</a>
         </Menu.Item>
       </Menu>
     );
