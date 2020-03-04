@@ -102,12 +102,12 @@ import {
               <Col key="email">
                 <Form.Item name={`Email`} label={`Email`}>
                   {getFieldDecorator(`email`, {
-                    rules: [
-                      {
-                        required: true,
-                        message: "email can't be blank!"
-                      }
-                    ]
+                    rules: [{
+                      // declare the type and message here
+                      type: 'email', message: 'The input is not valid E-mail!',
+                  }, {
+                      required: true, message: 'Please input your E-mail!',
+                  }],
                   })(<Input placeholder="email" />)}
                 </Form.Item>
               </Col>
