@@ -9,7 +9,6 @@ import Patients from '../pages/Patients'
 import PatientDetail from '../pages/PatientDetail'
 import QueryFeedback from '../pages/QueryFeedback'
 import Dashboard from '../pages/Dashboard'
-// import SignUp from '../Navbar/SignUp'
 import { Layout, Breadcrumb, Menu, Icon } from 'antd';
 // const { SubMenu } = Menu;
 // import {baseURL} from "../.././utils";
@@ -54,7 +53,7 @@ class Sidebar extends Component {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout>
+      <Layout>
           {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
@@ -72,9 +71,6 @@ class Sidebar extends Component {
                 <Route path="/patients" exact>
                   <Patients />
                 </Route>
-                {/* <Route path="/sign_up" exact>
-                  <SignUp />
-                </Route> */}
                 <Route path="/query_spots/:query_spot_id/feedback" exact>
                   <QueryFeedback />
                 </Route>
