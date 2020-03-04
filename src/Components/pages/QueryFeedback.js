@@ -83,7 +83,14 @@ class ApplyJobForm extends React.Component {
              
               <Col key="message">
                 <Form.Item name={`message`} label={`Doctor's Feedback`}>
-                  {getFieldDecorator(`message`)(<TextArea rows={4} placeholder="Put your descriptive feedback here..." />)}
+                  {getFieldDecorator(`message`, {
+                    rules: [
+                      {
+                        required: true,
+                        message: "Feedback can't be blank!"
+                      }
+                    ]
+                  })(<TextArea rows={4} placeholder="Put your descriptive feedback here..." />)}
                 </Form.Item>
               </Col>
             </Row>

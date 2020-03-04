@@ -3,7 +3,6 @@ import axios from "axios";
 import {
   Form,
   Input,
-  Checkbox,
   Button,
   message,
   Spin,
@@ -33,7 +32,7 @@ import {
 //     value: website,
 //   }));
 
-  class LoginForm extends React.Component {
+  class ForgetPasswordForm extends React.Component {
     state = {loading: false};
 
   componentDidMount() {
@@ -50,33 +49,32 @@ import {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/api/v1/users/login?email=${values.email}&password=${values.password}`
+          `${baseURL}/api/v1/users/forget_password?email=${values.email}`
         )
         .then(res => {
-
+            debugger
           console.log(res);
           console.log(res.data);
           debugger
           if(res.data.data.success === false){
-            this.props.history.push("/login");
+            this.props.history.push("/forget_password");
             this.setState({ loading: false });
             message.error(res.data.data.message, 2);
             return false;
           }
           else if(res.data.data.user.role !== "doctor"){
-            this.props.history.push("/login");
+            this.props.history.push("/forget_password");
             this.setState({ loading: false });
-            message.error("Only doctor can login to doctor's panel", 2);
+            message.error("Email not found!", 2);
             return false;
 
           }
-          localStorage.setItem('auth_token', res.data.data.auth_token);
-          localStorage.setItem('current_user', res.data.data.user);
           this.setState({ loading: false });
-          this.props.history.push("/patients");
-          message.success("Login Sucessfully!", 2);  
+          this.props.history.push("/login");
+          message.success(res.data.data.message, 2);  
         })
         .catch(error => {
+            debugger
             this.setState({ loading: false });
             this.props.history.push("/login");
             message.error('Something went wrong!', 2);
@@ -94,7 +92,7 @@ import {
     <div className="custom-header" style={{margin: "30px 0px 50px"}}>
         <div className="custom-logo">
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
-          <h2 className="page-title">Login</h2>
+          <h2 className="page-title">Forget Password</h2>
         </div>
     </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
@@ -111,49 +109,11 @@ import {
                     rules: [
                       {
                         required: true,
-                        message: "email can't be blank!"
+                        message: "Please enter your email here!"
                       }
                     ]
                   })(<Input placeholder="email" />)}
                 </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col key="password">
-                <Form.Item name={`Password`} label={`Password`}>
-                  {getFieldDecorator(`password`, {
-                    rules: [
-                      {
-                        required: true,
-                        message: "Password can't be blank!"
-                      }
-                    ]
-                  })(<Input.Password placeholder="password" />)}
-                      <a href="/forget_password">Forgot your password.</a>
-                </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col key="agreement">
-              <Form.Item name="agreement">
-              {getFieldDecorator(`agreement`, {
-                    rules: [
-                      {
-                        required: true,
-                        message: "agreement can't be blank!"
-                      }
-                    ]
-                  })(
-                <Checkbox>
-                  I have read the <a href="/">agreement</a>
-                </Checkbox>
-                )}
-              </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                  <a href="/sign_up">Create a new account</a>
               </Col>
             </Row>
             <Row>
@@ -177,6 +137,6 @@ import {
 }
 
 const WrappedAdvancedSearchForm = Form.create({ name: "query_spot_feedback" })(
-  LoginForm
+  ForgetPasswordForm
 );
 export default withRouter(WrappedAdvancedSearchForm);

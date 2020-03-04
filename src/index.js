@@ -8,6 +8,7 @@ import {
 import './index.css';
 import SignUp from './Components/Auth/SignUp'
 import Login from './Components/Auth/Login'
+import ForgetPassword from './Components/Auth/ForgetPassword'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -35,6 +36,9 @@ ReactDOM.render(
           </Route>
           <Route path="/sign_up" exact>
             <SignUp />
+          </Route>
+          <Route path="/forget_password" exact>
+            <ForgetPassword />
           </Route>
         </Switch>
     </Router>
