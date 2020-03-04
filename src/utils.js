@@ -1,3 +1,3 @@
-let baseURL = 'https://dermpro.herokuapp.com/api/v1'
+let baseURL = 'https://dermpro.herokuapp.com'
 
 export {baseURL}

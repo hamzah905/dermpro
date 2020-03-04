@@ -12,7 +12,12 @@ class ApplyJobForm extends React.Component {
   state = { message: "", loading: false, query_spot: { images: []} };
 
   componentDidMount() {
-    axios.get(`${baseURL}/query_spots/${parseInt(this.props.match.params.query_spot_id)}`)
+    axios.get(`${baseURL}/api/v1/query_spots/${parseInt(this.props.match.params.query_spot_id)}`,
+    {
+      headers: {
+        "Authorization": `${localStorage.getItem('auth_token')}`
+      }
+    })
       .then(res => {
         var query_spot = res.data.data.query_spot;
         this.setState({ query_spot: query_spot });
@@ -27,9 +32,14 @@ class ApplyJobForm extends React.Component {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/query_spots/${parseInt(
+          `${baseURL}/api/v1/query_spots/${parseInt(
             this.props.match.params.query_spot_id
-          )}/feedback?message=${values.message}`
+          )}/feedback?message=${values.message}`,
+          {
+            headers: {
+              "Authorization": `${localStorage.getItem('auth_token')}`
+            }
+          }
         )
         .then(res => {
           console.log(res);
@@ -58,7 +68,7 @@ class ApplyJobForm extends React.Component {
         <div className="row">
         { query_spot.images.map((image, index)=>
           <div key = {index} className="custom-detail-section custom-blog-section">
-            <img src={`https://dermpro.herokuapp.com/${image}`} alt="new" className="custom-query-spot-image"/>
+            <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/>
           </div>
         )}
         </div>

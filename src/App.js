@@ -17,7 +17,7 @@ class App extends Component {
   componentDidMount() {
     if(!localStorage.getItem('auth_token')){
       this.props.history.push("/login");
-      message.success("Need to Login!", 2);  
+      message.error("Login Required!", 2);  
     }
     setTimeout(() => { 
           this.setState({loading: false})

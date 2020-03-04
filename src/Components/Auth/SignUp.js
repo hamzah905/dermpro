@@ -51,7 +51,7 @@ import {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/users/signup?email=${values.email}&password=${values.password}&password_confirmation=${values.confirm_password}&role=doctor`
+          `${baseURL}/api/v1/users/signup?email=${values.email}&password=${values.password}&password_confirmation=${values.confirm_password}&role=doctor`
         )
         .then(res => {
   

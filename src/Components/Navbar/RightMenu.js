@@ -7,26 +7,6 @@ import { Menu } from 'antd';
 class RightMenu extends Component {
   state = { visible: false };
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
   render() {
     return (
 			<Menu mode="horizontal">

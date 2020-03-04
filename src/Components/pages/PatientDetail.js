@@ -16,7 +16,12 @@ class PatitenDetail extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`${baseURL}/patients/${parseInt(this.props.match.params.patient_id)}`)
+    axios.get(`${baseURL}/api/v1/patients/${parseInt(this.props.match.params.patient_id)}`,
+    {
+      headers: {
+        "Authorization": `${localStorage.getItem('auth_token')}`
+      }
+    })
       .then(res => {
         var patient = res.data.data.user;
         this.setState({ patient });

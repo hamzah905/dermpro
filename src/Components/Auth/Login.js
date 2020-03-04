@@ -50,7 +50,7 @@ import {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/users/login?email=${values.email}&password=${values.password}`
+          `${baseURL}/api/v1/users/login?email=${values.email}&password=${values.password}`
         )
         .then(res => {
 

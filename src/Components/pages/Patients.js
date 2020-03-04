@@ -18,10 +18,6 @@ const columns = [
   {
     title: 'ID',
     dataIndex: 'id',
-    sorter: {
-      compare: (a, b) => a.id - b.id,
-      // multiple: 7,
-    },
   },
     {
       title: 'Name',
@@ -31,50 +27,26 @@ const columns = [
           <p>{(text ? text : '') + " " + (record.last_name ? record.last_name : '' )}</p>
         </span>
       ),
-      sorter: {
-        compare: (a, b) => a.first_name - b.first_name,
-        // multiple: 7,
-      },
     },
     {
       title: 'Email',
       dataIndex: 'email',
-      sorter: {
-        compare: (a, b) => a.chinese - b.chinese,
-        multiple: 3,
-      },
     },
     {
       title: 'Gender',
       dataIndex: 'gender',
-      sorter: {
-        compare: (a, b) => a.chinese - b.chinese,
-        multiple: 3,
-      },
     },
     {
       title: 'DOB',
       dataIndex: 'dob',
-      sorter: {
-        compare: (a, b) => a.math - b.math,
-        multiple: 2,
-      },
     },
     {
       title: 'Contact No',
       dataIndex: 'contact_no',
-      sorter: {
-        compare: (a, b) => a.english - b.english,
-        multiple: 1,
-      },
     },
     {
       title: 'Created At',
       dataIndex: 'created_at',
-      sorter: {
-        compare: (a, b) => a.english - b.english,
-        multiple: 1,
-      },
     },
     {
         title: 'Action',
@@ -103,7 +75,12 @@ class Patients extends React.Component {
             Object.entries(values).map(([key, val]) => {
                 new_values[key] = (val === undefined) ? "" : val;
             })
-            axios.get(`${baseURL}/search_patients?email=${new_values.email}&name=${new_values.name}`)
+            axios.get(`${baseURL}/api/v1/search_patients?email=${new_values.email}&name=${new_values.name}`,
+            {
+              headers: {
+                "Authorization": `${localStorage.getItem('auth_token')}`
+              }
+            })
             .then(res => {
               var patients = res.data.data.users;
               this.setState({ patients, loading: false  });
@@ -116,7 +93,12 @@ class Patients extends React.Component {
   
     componentDidMount() {
     //   this.setState({loading: true})
-      axios.get(`${baseURL}/all_patients`)
+      axios.get(`${baseURL}/api/v1/all_patients`,
+      {
+        headers: {
+          "Authorization": `${localStorage.getItem('auth_token')}`
+        }
+      })
         .then(res => {
           var patients = res.data.data.users;
           this.setState({ patients, loading: false });
