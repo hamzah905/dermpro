@@ -51,7 +51,7 @@ import {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/users/signup?email=${values.email}&password=${values.password}&password_confirmation=${values.confirm_password}`
+          `${baseURL}/users/signup?email=${values.email}&password=${values.password}&password_confirmation=${values.confirm_password}&role=doctor`
         )
         .then(res => {
   
@@ -63,6 +63,7 @@ import {
             message.error(res.data.data.message, 2);
             return false;
           }
+          debugger
           localStorage.setItem('auth_token', res.data.data.auth_token);
           localStorage.setItem('current_user', res.data.data.user);
           this.setState({ loading: false });

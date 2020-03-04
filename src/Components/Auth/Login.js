@@ -56,11 +56,19 @@ import {
 
           console.log(res);
           console.log(res.data);
+          debugger
           if(res.data.data.success === false){
             this.props.history.push("/login");
             this.setState({ loading: false });
             message.error(res.data.data.message, 2);
             return false;
+          }
+          else if(res.data.data.user.role !== "doctor"){
+            this.props.history.push("/login");
+            this.setState({ loading: false });
+            message.error("Only doctor can login to doctor's panel", 2);
+            return false;
+
           }
           localStorage.setItem('auth_token', res.data.data.auth_token);
           localStorage.setItem('current_user', res.data.data.user);
