@@ -25,6 +25,9 @@ ReactDOM.render(
             <Route path="/patients" exact>
                 <App />
             </Route>
+            <Route path="/payment" exact>
+                <App />
+            </Route>
             <Route path="/query_spots/:query_spot_id/feedback" exact>
                 <App />
             </Route>

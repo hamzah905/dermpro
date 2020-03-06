@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import ContactUs from '../pages/ContactUs'
 import Patients from '../pages/Patients'
+import Payment from '../pages/Payment'
 import PatientDetail from '../pages/PatientDetail'
 import QueryFeedback from '../pages/QueryFeedback'
 import Dashboard from '../pages/Dashboard'
@@ -76,6 +77,9 @@ class Sidebar extends Component {
                 </Route>
                 <Route path="/contact_us" exact>
                   <ContactUs />
+                </Route>
+                <Route path="/payment" exact>
+                  <Payment />
                 </Route>
               </Switch>
             </div>

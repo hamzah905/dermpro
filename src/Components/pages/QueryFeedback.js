@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import { Form, Row, Col, Input, Button, message, Spin } from "antd";
+import { Form, Row, Col, Input, Button, message, Spin, Upload } from "antd";
 
 // import LinkedinButton from "./LinkedinButton";
 import {baseURL} from "../../utils";
@@ -9,7 +9,12 @@ import {baseURL} from "../../utils";
 const { TextArea } = Input;
 
 class ApplyJobForm extends React.Component {
-  state = { message: "", loading: false, query_spot: { images: []} };
+  state = { imageFile: null, message: "", loading: false, query_spot: { images: []} };
+
+  onSelectImageFile = file => {
+    console.log(file,'image file')
+    this.setState({ imageFile: file });
+  };
 
   componentDidMount() {
     axios.get(`${baseURL}/api/v1/query_spots/${parseInt(this.props.match.params.query_spot_id)}`,
@@ -30,11 +35,14 @@ class ApplyJobForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if(!err){
       this.setState({loading: true})
+      const formData = new FormData();
+      formData.append("image", this.state.imageFile);
       axios
         .post(
           `${baseURL}/api/v1/query_spots/${parseInt(
             this.props.match.params.query_spot_id
           )}/feedback?message=${values.message}`,
+          formData,
           {
             headers: {
               "Authorization": `${localStorage.getItem('auth_token')}`
@@ -59,10 +67,11 @@ class ApplyJobForm extends React.Component {
   };
 
   render() {
+    const { imageFile } = this.state;
     const { getFieldDecorator } = this.props.form;
     const { query_spot } = this.state;
     // var { images } = query_spotz.images;
-    console.log(query_spot.iamges,"hjvbdsnalmfd l")
+    console.log(query_spot.images,"hjvbdsnalmfd l")
     return (
       <div className="container">
         <div className="row">
@@ -80,7 +89,6 @@ class ApplyJobForm extends React.Component {
             className="custom-feedback-form"
           >
             <Row>
-             
               <Col key="message">
                 <Form.Item name={`message`} label={`Doctor's Feedback`}>
                   {getFieldDecorator(`message`, {
@@ -91,6 +99,32 @@ class ApplyJobForm extends React.Component {
                       }
                     ]
                   })(<TextArea rows={4} placeholder="Put your descriptive feedback here..." />)}
+                </Form.Item>
+              </Col>
+            <Col key="image">
+                <Form.Item name={`Image`} label={`Feedback Attachment`}>
+                  {getFieldDecorator(`image`)(
+                    <Upload 
+                      fileList={imageFile ? [imageFile] : []}
+                      beforeUpload={f => {
+                        this.onSelectImageFile(f);
+                        return false;
+                      }}
+                      showUploadList={{
+                        showPreviewIcon: false,
+                        showRemoveIcon: false
+                      }}
+                    >
+                      <Button
+                        style={{ marginLeft: 10, color: 'grey', borderColor: 'grey' }}
+                        type="default"
+                        size="default"
+                        ghost
+                      >
+                        {"Select File"}
+                      </Button>
+                    </Upload>
+                  )}
                 </Form.Item>
               </Col>
             </Row>

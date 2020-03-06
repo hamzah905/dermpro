@@ -488,3 +488,20 @@ align-items: center;
 .pie-stat{
   text-align: center;
 }
+.braintree-show-card{
+  padding: 25px;
+}
+.payment-button{
+  margin-left: 5%;
+}
+.payment-button:hover{
+  color: grey;
+  border-color: grey;
+}
+.payment-button{
+  color: grey;
+  border-color: grey;
+}
+.braintree-dropin{
+  padding: 25px;
+}
