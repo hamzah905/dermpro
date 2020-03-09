@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-import { Form, Row, Col, Input, Button, message, Spin, Upload } from "antd";
+import { Form, Row, Col, Input, Button, message, Spin, Upload, Descriptions } from "antd";
 
 // import LinkedinButton from "./LinkedinButton";
 import {baseURL} from "../../utils";
@@ -9,7 +9,7 @@ import {baseURL} from "../../utils";
 const { TextArea } = Input;
 
 class ApplyJobForm extends React.Component {
-  state = { imageFile: null, message: "", loading: false, query_spot: { images: []} };
+  state = { imageFile: null, message: "", loading: false, query_spot: { images: [], feedbacks: []} };
 
   onSelectImageFile = file => {
     console.log(file,'image file')
@@ -142,6 +142,45 @@ class ApplyJobForm extends React.Component {
             </Row>
           </Form>
         </div>
+        <h3 style={{margin: "10px 40px"}}>Previous Chat History</h3>
+        { query_spot.feedbacks.map((feedback, index)=>
+        <div key = {index} className="custom-detail-section custom-blog-section">
+
+            {
+                feedback.user_role === "patient" ? 
+                <Descriptions style={{backgroundColor: "lightblue", textAlign: "left"}}>
+                    <Descriptions.Item className="custom-blog-content-right">
+                    <h2>{feedback.title}</h2>
+                    <div>{feedback.message}</div>
+                    </Descriptions.Item>
+                    {
+                     feedback.image ?
+                    <Descriptions.Item className="custom-blog-img">
+                    <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                    </Descriptions.Item>
+                    :
+                    console.log("No image")
+                    }
+                </Descriptions>
+                :
+                <Descriptions style={{backgroundColor: "lightgrey", textAlign: "right"}}>
+                {
+                 feedback.image ?
+                    <Descriptions.Item className="custom-blog-img">
+                    <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                    </Descriptions.Item>
+                    :
+                    console.log("No image")
+                    }
+                  
+                    <Descriptions.Item className="custom-blog-content-left">
+                    <h2>{feedback.title}</h2>
+                    <div>{feedback.message}</div>
+                    </Descriptions.Item>
+                </Descriptions>
+            }
+        </div>
+        )} 
         </Spin>
       </div>
     );
