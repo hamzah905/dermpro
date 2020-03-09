@@ -8,8 +8,8 @@ class RightMenu extends Component {
   state = { visible: false, user: {}  };
   
   componentDidMount() {
-    const user = JSON.parse(localStorage.getItem("current_user"))
-    this.setState({ user: user });
+    // const user = JSON.parse(localStorage.getItem("current_user"))
+    // this.setState({ user: user });
   }
 
   render() {
@@ -18,7 +18,7 @@ class RightMenu extends Component {
         {/* <Menu.Item key="mail">
           <a href="/login">Logout</a>
         </Menu.Item> */}
-        <SubMenu title={<span>Hello! {this.state.user.email}</span>}>
+        <SubMenu title={<span>Hello! </span>}>
             <Menu.Item key="setting:1">
              <a href="/payment">Get Subscription</a>
             </Menu.Item>
