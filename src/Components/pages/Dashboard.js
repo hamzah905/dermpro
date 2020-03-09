@@ -1,5 +1,5 @@
 import React from "react";
-// import axios from 'axios';
+import axios from 'axios';
 import {
      withRouter
   } from "react-router-dom";
@@ -10,28 +10,42 @@ import { Bar } from 'ant-design-pro/lib/Charts';
 import { Pie } from 'ant-design-pro/lib/Charts';
 import { Gauge } from 'ant-design-pro/lib/Charts';
 
-
-
-// import {baseURL} from "../../utils";
-
-const salesData = [];
-for (let i = 0; i < 12; i += 1) {
-  salesData.push({
-    x: `${i + 1}`,
-    y: Math.floor(Math.random() * 100) + 20,
-  });
-}
+import {baseURL} from "../../utils";
 
 class Dashboard extends React.Component {
     
   state = {
-    patient: []
+    salesData: [],
+    doctor_subscription_rate: 0,
+    reports_pending_ratio: 0
   }
 
   componentDidMount() {
+    axios.get(`${baseURL}/api/v1/dashboard_graphs_user`,
+    {
+      headers: {
+        "Authorization": `${localStorage.getItem('auth_token')}`
+      }
+    })
+      .then(res => {
+        var user = res.data.data.user.user_per_day;
+        const salesData = [];
+        for (var index in user) {
+          salesData.push({
+            x: index,
+            y: user[index],
+          });
+        }
+        this.setState({ salesData: salesData });
+        this.setState({ doctor_subscription_rate: res.data.data.user.doctor_subscription_rate });
+        this.setState({ reports_pending_ratio: res.data.data.user.reports_pending_ratio });
+
+        // debugger
+      })
 
   }
   render() {
+    const { salesData } = this.state;
 
     return(
       <div>
@@ -48,6 +62,7 @@ class Dashboard extends React.Component {
       <div style={{padding: "20px"}}>
         <h2>Patients Per Week:</h2>
         <Bar height={200} data={salesData} />
+        {console.log(salesData)}
       </div>
       <br></br>
     </Col>
@@ -57,7 +72,7 @@ class Dashboard extends React.Component {
         <div style={{padding: "20px"}}>
         <h2 style={{textAlign: "center"}}>Doctors Subscription Rate:</h2>
         <br></br>
-          <Gauge title="Doctors" height={164} percent={87} />
+          <Gauge title="Doctors" height={164} percent={this.state.doctor_subscription_rate} />
         </div>
         </div>
     </Col>
@@ -67,14 +82,7 @@ class Dashboard extends React.Component {
         <div style={{padding: "20px", }}>
         <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
         <br></br>
-          <Pie percent={28} subTitle="Reports Pending Ratio" total="28%" height={140} />
-        </div>
-    </Col>
-    <Col span={12} style={{ marginTop: 24 }}>
-        <div style={{padding: "20px", }}>
-        <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
-        <br></br>
-          <Pie percent={28} subTitle="Reports Pending Ratio" total="28%" height={140} />
+          <Pie percent={this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={`${this.state.reports_pending_ratio}%`} height={140} />
         </div>
     </Col>
   </Row>
