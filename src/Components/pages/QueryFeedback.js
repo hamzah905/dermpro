@@ -75,6 +75,19 @@ class ApplyJobForm extends React.Component {
     return (
       <div className="container">
         <div className="row">
+
+    <div className="custom-detail-section custom-job-section">
+        <Descriptions>
+          <Descriptions.Item label="Disease">{query_spot.disease}</Descriptions.Item>
+          <Descriptions.Item label="Scan Place">{query_spot.query_spot_place}</Descriptions.Item>
+          <Descriptions.Item label="Message">{query_spot.message}</Descriptions.Item>
+          <Descriptions.Item label="Created At">
+            {query_spot.created_at}
+          </Descriptions.Item>
+          <br></br>
+        </Descriptions>
+        </div>
+
         { query_spot.images.map((image, index)=>
           <div key = {index} className="custom-detail-section custom-blog-section">
             <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/>
@@ -82,6 +95,7 @@ class ApplyJobForm extends React.Component {
         )}
         </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
+    
         <div className="custom-detail-section">
           <Form
             name="query_spot_feedback"

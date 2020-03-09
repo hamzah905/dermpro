@@ -16,38 +16,30 @@ function onChange(pagination, filters, sorter, extra) {
 const columns = [
   {
     title: 'ID',
-    dataIndex: 'id',     
-    sorter: {
-      compare: (a, b) => a.id - b.id,
-      // multiple: 7,
-    },
+    dataIndex: 'id',
+  },
+  {
+    title: 'Disease',
+    dataIndex: 'disease',
+  },
+  {
+    title: 'Scan Place',
+    dataIndex: 'query_spot_place',
   },
     {
       title: 'Message',
-      dataIndex: 'message',     
-      sorter: {
-        compare: (a, b) => a.first_name - b.first_name,
-        // multiple: 7,
-      },
+      dataIndex: 'message',
     },
     {
       title: 'images',
       dataIndex: 'images',
       render: (text, record) => (
       <p>{text.length}</p>
-      ),  
-      sorter: {
-        compare: (a, b) => a.last_name - b.last_name,
-        // multiple: 6,
-      },
+      ),
     },
     {
       title: 'Created At',
       dataIndex: 'created_at',
-      sorter: {
-        compare: (a, b) => a.english - b.english,
-        multiple: 1,
-      },
     },
     {
         title: 'Action',
