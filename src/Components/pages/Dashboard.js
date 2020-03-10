@@ -8,7 +8,7 @@ import { Row, Col } from 'antd';
 import Logo from "../.././Logo.png";
 import { Bar } from 'ant-design-pro/lib/Charts';
 import { Pie } from 'ant-design-pro/lib/Charts';
-import { Gauge } from 'ant-design-pro/lib/Charts';
+import Gauge from './Gauge'
 
 import {baseURL} from "../../utils";
 
@@ -67,24 +67,18 @@ class Dashboard extends React.Component {
       <br></br>
     </Col>
     <Col span={12} style={{ marginTop: 24 }}>
-      <div style={{display: 'flex', }}>
-
-        <div style={{padding: "20px"}}>
-        <h2 style={{textAlign: "center"}}>Doctors Subscription Rate:</h2>
-        <br></br>
-          <Gauge title="Doctors" height={164} percent={this.state.doctor_subscription_rate} />
-        </div>
-        </div>
-    </Col>
-    </Row>
-    <Row>
-    <Col span={12} style={{ marginTop: 24 }}>
         <div style={{padding: "20px", }}>
         <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
         <br></br>
           <Pie percent={this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={`${this.state.reports_pending_ratio}%`} height={140} />
         </div>
     </Col>
+    </Row>
+    <Col span={12}>
+        <h2 style={{textAlign: "center"}}>Doctors Subscription Rate:</h2>
+          <Gauge percent = {this.state.doctor_subscription_rate} />
+    </Col>
+    <Row>
   </Row>
     </div>
     );

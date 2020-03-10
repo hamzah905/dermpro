@@ -505,3 +505,9 @@ align-items: center;
 .braintree-dropin{
   padding: 25px;
 }
+#canvas_3{
+  margin-top: -80px !important;
+}
+.g-guide{
+  top: 230px !important;
+}

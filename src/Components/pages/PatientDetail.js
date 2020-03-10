@@ -70,5 +70,4 @@ class PatitenDetail extends React.Component {
   }
 };
 
-
 export default withRouter(PatitenDetail);
