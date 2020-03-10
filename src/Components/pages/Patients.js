@@ -54,7 +54,7 @@ const columns = [
         dataIndex: 'id',
         render: (text, record) => (
           <span>
-            <Button className="custom-apply-search-btn">
+            <Button className="custom-apply-search-btn" style={{width: "94%", fontSize: "small"}}>
               <Link to={`/patients/${record.id}`} style={{color: "#ffffff"}}>Detail</Link>
             </Button>
           </span>
