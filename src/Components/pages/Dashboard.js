@@ -70,7 +70,7 @@ class Dashboard extends React.Component {
         <div style={{padding: "20px", }}>
         <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
         <br></br>
-          <Pie percent={this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={"79%"} height={140} />
+          <Pie percent={this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={`${this.state.reports_pending_ratio}%`} height={140} />
         </div>
     </Col>
     </Row>

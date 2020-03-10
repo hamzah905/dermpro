@@ -73,7 +73,7 @@ import {
           localStorage.setItem('auth_token', res.data.data.auth_token);
           localStorage.setItem('current_user', JSON.stringify(res.data.data.user));
           this.setState({ loading: false });
-          this.props.history.push("/patients");
+          this.props.history.push("/");
           message.success("Login Sucessfully!", 2);  
         })
         .catch(error => {
