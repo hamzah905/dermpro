@@ -68,9 +68,9 @@ const data = [
               if (val === '2.25') {
                 return '15';
               } else if (val === '3.75') {
-                return '25';
+                return '30';
               } else if (val === '5.25') {
-                return '55';
+                return '60';
               }
               return '75';
             },
