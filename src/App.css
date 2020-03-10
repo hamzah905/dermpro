@@ -63,7 +63,7 @@
   box-shadow: 0 0 30px #f3f1f1;
 }
 .logo{
-  background: #002140;
+  background: #1781af;
   text-align: center;
   width: 200px;
   float: left;
@@ -90,7 +90,16 @@
 }
 .menuCon .ant-menu-item a, .menuCon .ant-menu-submenu-title a{
   padding: 10px 15px;
+  
 }
+.ant-menu-horizontal > .ant-menu-item-selected > a{
+  color:#2BA2D6 !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item > a:hover{
+  color:#2BA2D6 !important;
+}
+
 .menuCon .ant-menu-horizontal{
   border-bottom: none;
 }
@@ -141,6 +150,7 @@
 }
 .ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover{
   border-bottom-color: transparent;
+  
 }
 /* @media(max-width: 767px){
   .barsMenu{
@@ -308,12 +318,18 @@ align-items: center;
 }
 .custom-apply-search-btn{
   border: 0;
-  letter-spacing: 1px;
+  background-color: #2BA2D6;
+  letter-spacing: 2px;
   box-shadow: 0 3px 6px rgba(0,0,0,.21);
   font-size: 14px;
   width: 110%;
   display: block;
   margin: 0 auto;
+}
+
+.custom-apply-search-btn:hover{
+  background-color: #2BA2D6;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.29);
 }
 
 .custom-bottom-btn button.apply-btn-linkedin{
@@ -418,6 +434,7 @@ align-items: center;
 
 .custom-blog-section .custom-blog-img{
   width: 250px;
+  padding: 10px;
   height: 200px;
 }
 
@@ -427,16 +444,17 @@ align-items: center;
   display: block;
   height: 100%;
   width: 100%;
+  border-radius: 5px;
 }
 
 .custom-blog-section .custom-blog-content-right{
   display: block;
-  padding-right:50px;
+  padding:10px;
 }
 
 .custom-blog-section .custom-blog-content-left{
   display: block;
-  padding-left: 50px;
+  padding: 10px;
 }
 
 .custom-detail-section .ant-form input[type='file']:focus{
@@ -514,3 +532,40 @@ align-items: center;
 /* .g-guide{
   top: 200px !important;
 } */
+
+
+/**********************/
+/**********************/
+/**********************/
+
+.custom-blog-section .ant-descriptions-view{
+  box-shadow: 0px 2px 4px #0000002e;
+}
+
+.ant-layout-sider-children .ant-menu-item-selected{
+  background-color: #8CC63F !important;
+}
+
+.ant-layout-sider-children ul.ant-menu{
+  background: #2BA2D6 !important;
+}
+
+.ant-layout-has-sider .ant-layout-sider{
+  background: #2BA2D6 !important;
+}
+
+.ant-layout-sider-trigger{
+  background-color: #1781af !important;
+}
+
+.custom-spot-img{
+  height: 350px;
+  width: 350px;
+}
+
+.custom-spot-img img{
+  width: 100%;
+  background-size: cover;
+  object-fit: contain;
+  height: 100%;
+}

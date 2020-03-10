@@ -92,7 +92,9 @@ class ApplyJobForm extends React.Component {
 
         { query_spot.images.map((image, index)=>
           <div key = {index} className="custom-detail-section custom-blog-section">
+            <div className="custom-spot-img">
             <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/>
+            </div>
           </div>
         )}
         </div>
@@ -158,16 +160,16 @@ class ApplyJobForm extends React.Component {
             </Row>
           </Form>
         </div>
-        <h3 style={{margin: "10px 40px"}}>Previous Chat History</h3>
+        <h3 style={{margin: "10px 50px"}}>Previous Chat History</h3>
         { query_spot.feedbacks.map((feedback, index)=>
         <div key = {index} className="custom-detail-section custom-blog-section">
 
             {
                 feedback.user_role === "patient" ? 
-                <Descriptions style={{backgroundColor: "lightblue", textAlign: "left"}}>
+                <Descriptions style={{backgroundColor: "#2BA2D6", textAlign: "left",borderRadius:"5px" }}>
                     <Descriptions.Item className="custom-blog-content-right">
                     <h2>{feedback.title}</h2>
-                    <div>{feedback.message}</div>
+                    <div style={{color:"#ffffff"}}>{feedback.message}</div>
                     </Descriptions.Item>
                     {
                      feedback.image ?
@@ -179,7 +181,7 @@ class ApplyJobForm extends React.Component {
                     }
                 </Descriptions>
                 :
-                <Descriptions style={{backgroundColor: "lightgrey", textAlign: "right"}}>
+                <Descriptions style={{backgroundColor: "rgb(175, 222, 112)", textAlign: "right", borderRadius:"5px"}}>
                 {
                  feedback.image ?
                     <Descriptions.Item className="custom-blog-img">
@@ -191,7 +193,7 @@ class ApplyJobForm extends React.Component {
                   
                     <Descriptions.Item className="custom-blog-content-left">
                     <h2>{feedback.title}</h2>
-                    <div>{feedback.message}</div>
+                    <div style={{color:"#ffffff"}}>{feedback.message}</div>
                     </Descriptions.Item>
                 </Descriptions>
             }
