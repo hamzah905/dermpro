@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Logo from "../.././Logo.png";
 import { Form, Row, Col, Input, Button, message, Spin, Upload, Descriptions } from "antd";
 
 // import LinkedinButton from "./LinkedinButton";
@@ -77,6 +78,12 @@ class ApplyJobForm extends React.Component {
     return (
       <div className="container">
         <div className="row">
+    <div className="custom-header">
+        <div className="custom-logo" style={{marginRight: "6%"}}>
+          <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
+          <h2 className="page-title">Query Spot</h2>
+        </div>
+    </div>
 
     <div className="custom-detail-section custom-job-section">
         <Descriptions>

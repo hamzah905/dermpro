@@ -37,7 +37,7 @@ class ContactUsForm extends React.Component {
     <Form {...layout} name="nest-messages" onSubmit={onSubmit} validatemessages={validatemessages}>
 
     <div className="custom-header">
-        <div className="custom-logo">
+        <div className="custom-logo" style={{marginRight: "6%"}}>
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
           <h2 className="page-title">Contact Us</h2>
         </div>
