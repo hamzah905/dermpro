@@ -53,13 +53,13 @@ class ApplyJobForm extends React.Component {
           console.log(res);
           console.log(res.data);
           this.setState({ loading: false });
-          this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
+          this.props.history.push(`/patients`);
           message.success("Feedback given Sucessfully", 2);  
         })
         .catch(error => {
             this.setState({ loading: false });
             setTimeout(() => {
-              this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
+              this.props.history.push(`/patients`);
             }, 500);
             message.error('Something went wrong!', 2);
             event.preventDefault();
@@ -148,10 +148,12 @@ class ApplyJobForm extends React.Component {
             </Row>
             <Row>
               <Col >
-                <div className="custom-bottom-btn" style={{textAlign: "right"}}>
+                <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
                   <Button
-                    type="primary"
+                    type="primary  primary-btnn"
+                    className="custom-apply-search-btn"
                     htmlType="submit"
+                    style={{width: "14%", marginLeft: "43%"}}
                   >
                     Submit
                   </Button>

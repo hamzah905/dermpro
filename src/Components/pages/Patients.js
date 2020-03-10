@@ -140,7 +140,7 @@ class Patients extends React.Component {
                             <Col
                                 span={8}>
                                 <div className="custom-bottom-btn" style={{margin: "5px 0px"}}>
-                                    <Button type="primary primary-btnn" className="custom-apply-search-btn" htmlType="submit" style={{backgroundColor: this.props.layout_color}}>SEARCH</Button>
+                                    <Button type="primary primary-btnn" className="custom-apply-search-btn" htmlType="submit">SEARCH</Button>
                                 </div>
                             </Col>
                         </Row>
