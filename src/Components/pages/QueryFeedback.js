@@ -53,12 +53,14 @@ class ApplyJobForm extends React.Component {
           console.log(res);
           console.log(res.data);
           this.setState({ loading: false });
-          this.props.history.push("/patients");
+          this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
           message.success("Feedback given Sucessfully", 2);  
         })
         .catch(error => {
             this.setState({ loading: false });
-            this.props.history.push("/patients");
+            setTimeout(() => {
+              this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
+            }, 500);
             message.error('Something went wrong!', 2);
             event.preventDefault();
         });
