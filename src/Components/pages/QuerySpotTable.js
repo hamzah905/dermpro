@@ -1,6 +1,6 @@
 import React from "react";
 // import axios from 'axios';
-import { Table, Form, Spin} from 'antd';
+import { Table, Form, Spin, Button} from 'antd';
 
 import {
     Link, withRouter
@@ -47,7 +47,9 @@ const columns = [
         dataIndex: 'id',
         render: (text, record) => (
           <span>
-            <Link to={`/query_spots/${record.id}/feedback`} >Feedback</Link>
+          <Button className="custom-apply-search-btn" style={{width: "78%", fontSize: "small"}}>
+            <Link to={`/query_spots/${record.id}/feedback`} style={{color: "#ffffff"}} >Feedback</Link>
+          </Button>
           </span>
         ),
       },

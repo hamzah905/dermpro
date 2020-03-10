@@ -71,9 +71,16 @@ class ContactUsForm extends React.Component {
         <Input.TextArea placeholder="Your Description" />
       </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 10 }}>
-        <Button type="primary  primary-btnn" htmlType="submit" style={{backgroundColor: this.props.layout_color}}>
-          Submit
-        </Button>
+        <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
+          <Button
+            type="primary  primary-btnn"
+            className="custom-apply-search-btn"
+            htmlType="submit"
+            style={{width: "32%"}}
+          >
+            Submit
+          </Button>
+        </div>
       </Form.Item>
     </Form>
   );
