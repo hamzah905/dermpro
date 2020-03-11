@@ -1,90 +1,113 @@
 import React from "react";
-import { Form, Input, Button } from 'antd';
+import axios from "axios";
+import { withRouter } from "react-router-dom";
 import Logo from "../.././Logo.png";
+import { Form, Row, Col, Input, Button, message, Spin } from "antd";
 
-const layout = {
-  labelCol: {
-    span: 7,
-  },
-  wrapperCol: {
-    span: 9,
-  },
-};
-const validatemessages = {
-  required: 'This field is required!',
-  types: {
-    email: 'Not a validate email!',
-    number: 'Not a validate number!',
-  },
-};
+import {baseURL} from "../../utils";
 
+const { TextArea } = Input;
 
 class ContactUsForm extends React.Component {
-  state = { loading: true };
-  componentDidMount() {
-    setTimeout(() => { 
-          this.setState({loading: false})
-    }, 500);
-}
+  state = { imageFile: null, loading: false, user: [] };
 
-  render() {
-  const onSubmit = values => {
-    console.log(values);
-    values.preventDefault();
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if(!err){
+      this.setState({loading: true})
+      axios
+        .post(
+          `${baseURL}/api/v1/contact_us?title=${values.title}&description=${values.description}`,
+          {
+            headers: {
+              "Authorization": `${localStorage.getItem('auth_token')}`
+            }
+          }
+        )
+        .then(res => {
+          this.setState({ loading: false });
+          this.props.history.push(`/`);
+          message.success("Feedback given Sucessfully", 2);
+        })
+        .catch(error => {
+            this.setState({ loading: false });
+              this.props.history.push(`/`);
+            message.error('Something went wrong!', 2);
+            event.preventDefault();
+        });
+      }
+    });
   };
 
-  return (
-    <Form {...layout} name="nest-messages" onSubmit={onSubmit} validatemessages={validatemessages}>
-
-    <div className="custom-header">
-        <div className="custom-logo" style={{marginRight: "6%"}}>
-          <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
-          <h2 className="page-title">Contact Us</h2>
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+      <div className="container">
+        <div className="row">
+            <div className="custom-header">
+                <div className="custom-logo" style={{marginRight: "6%"}}>
+                <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
+                <h2 className="page-title">Contact Us</h2>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <br></br>
-    <br></br>
-      <Form.Item
-        name={['user', 'name']}
-        label="Name"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input placeholder="Tom Cruse" />
-      </Form.Item>
-      <Form.Item
-        name={['user', 'email']}
-        label="Email"
-        rules={[
-          {
-            type: 'email',
-          },
-        ]}
-      >
-        <Input placeholder="example@example.com" />
-      </Form.Item>
-      <Form.Item name={['user', 'description']} label="Description">
-        <Input.TextArea placeholder="Your Description" />
-      </Form.Item>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 10 }}>
-        <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
-          <Button
-            type="primary  primary-btnn"
-            className="custom-apply-search-btn"
-            htmlType="submit"
-            style={{width: "32%"}}
+    <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
+    
+        <div className="custom-detail-section">
+          <Form
+            name="user_update_profile"
+            onSubmit={this.handleSubmit}
+            className="custom-feedback-form"
           >
-            Submit
-          </Button>
+            <Row>
+              <Col key="title">
+                <Form.Item name={`title`} label={`Title`}>
+                  {getFieldDecorator(`title`,{
+                    rules: [
+                      {
+                        required: true,
+                        message: "Title can't be blank!"
+                      }
+                    ]
+                  })(<Input rows={4} placeholder="Title" />)}
+                </Form.Item>
+              </Col>
+              <Col key="description">
+                <Form.Item name={`description`} label={`Description`}>
+                  {getFieldDecorator(`description`,{
+                    rules: [
+                      {
+                        required: true,
+                        message: "description can't be blank!"
+                      }
+                    ]
+                  })(<TextArea rows={4} placeholder="description" />)}
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col >
+                <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
+                  <Button
+                    type="primary  primary-btnn"
+                    className="custom-apply-search-btn"
+                    htmlType="submit"
+                    style={{width: "14%", marginLeft: "43%"}}
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          </Form>
         </div>
-      </Form.Item>
-    </Form>
-  );
+        </Spin>
+      </div>
+    );
+  }
 }
-};
-
-export default ContactUsForm;
+const WrappedAdvancedSearchForm = Form.create({ name: "user_update_profile" })(
+  ContactUsForm
+);
+export default withRouter(WrappedAdvancedSearchForm);

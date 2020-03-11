@@ -40,7 +40,7 @@ class UpdateProfileForm extends React.Component {
       axios.post(
           `${baseURL}/api/v1/update_user/${parseInt(
             this.props.match.params.user_id
-          )}?first_name=${values.first_name}&last_name=${values.last_name}&contact_no=${values.contact_no}&password=${values.password}`,
+          )}?first_name=${values.first_name}&last_name=${values.last_name}&contact_no=${values.contact_no}`,
           formData,
           {
             headers: {
@@ -130,11 +130,11 @@ class UpdateProfileForm extends React.Component {
                   })(<Input rows={4} placeholder="example@example.com" disabled = "disabled" />)}
                 </Form.Item>
               </Col>
-              <Col key="password">
+              {/* <Col key="password">
                 <Form.Item name={`password`} label={`Password`}>
                   {getFieldDecorator(`password`)(<Input.Password rows={4} placeholder="*******" />)}
                 </Form.Item>
-              </Col>
+              </Col> */}
               <Col key="contact_no">
                 <Form.Item name={`contact_no`} label={`Contact No`}>
                   {getFieldDecorator(`contact_no`, {
