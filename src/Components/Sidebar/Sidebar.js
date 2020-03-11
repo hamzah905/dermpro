@@ -9,6 +9,7 @@ import Patients from '../pages/Patients'
 import Payment from '../pages/Payment'
 import PatientDetail from '../pages/PatientDetail'
 import QueryFeedback from '../pages/QueryFeedback'
+import UpdateProfile from '../pages/UpdateProfile'
 import Dashboard from '../pages/Dashboard'
 import { Layout, Breadcrumb, Menu, Icon } from 'antd';
 // const { SubMenu } = Menu;
@@ -83,6 +84,9 @@ class Sidebar extends Component {
                 </Route>
                 <Route path="/contact_us" exact>
                   <ContactUs />
+                </Route>
+                <Route path="/users/:user_id/edit" exact>
+                  <UpdateProfile />
                 </Route>
                 <Route path="/payment" exact>
                   <Payment />

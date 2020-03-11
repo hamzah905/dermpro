@@ -34,6 +34,9 @@ ReactDOM.render(
             <Route path="/contact_us" exact>
                 <App />
             </Route>
+            <Route path="/users/:user_id/edit" exact>
+                <App />
+            </Route>
           <Route path="/login" exact>
             <Login />
           </Route>

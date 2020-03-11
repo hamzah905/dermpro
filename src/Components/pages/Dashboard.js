@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
       <Col span={12}>
       <div style={{padding: "20px"}}>
         <h2>Patients Per Week:</h2>
-        <Bar height={200} data={salesData} />
+        <Bar height={200} data={salesData} color="#2BA2D6" />
         {console.log(salesData)}
       </div>
       <br></br>
@@ -70,7 +70,7 @@ class Dashboard extends React.Component {
         <div style={{padding: "20px", }}>
         <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
         <br></br>
-          <Pie percent={this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={`${this.state.reports_pending_ratio}%`} height={140} />
+          <Pie percent={100 - this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={`${this.state.reports_pending_ratio}%`} height={140} color="#2BA2D6" />
         </div>
     </Col>
     </Row>
