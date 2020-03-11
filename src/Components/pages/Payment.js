@@ -22,7 +22,13 @@ class Store extends React.Component {
   async buy() {
     // Send the nonce to your server
     const { nonce } = await this.instance.requestPaymentMethod();
-    await axios(`server.test/purchase/${nonce}`);
+    // await axios(`server.test/purchase/${nonce}`)
+    await axios.get(`server.test/purchase/${nonce}`)
+      .then(res => {
+        console.log(res)
+        debugger
+      })
+    
   }
  
   render() {

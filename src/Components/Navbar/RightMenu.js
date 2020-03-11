@@ -20,7 +20,7 @@ class RightMenu extends Component {
         </Menu.Item> */}
         <SubMenu title={<span>Hello! {this.state.user.email}</span>}>
             <Menu.Item key="setting:1">
-             <a href="/payment">Get Subscription</a>
+             <a href="/">Update Profile</a>
             </Menu.Item>
             <Menu.Item key="setting:2">
              <a href="/login">Logout</a>

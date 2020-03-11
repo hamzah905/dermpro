@@ -52,6 +52,12 @@ class Sidebar extends Component {
                 <span>Contact Us</span>
               </Link>
             </Menu.Item>
+            <Menu.Item key="4">
+              <Link to='/payment'>
+                <Icon type="file" />
+                <span>Get Subscription</span>
+              </Link>
+            </Menu.Item>
           </Menu>
         </Sider>
       <Layout>

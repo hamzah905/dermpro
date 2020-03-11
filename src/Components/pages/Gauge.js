@@ -56,7 +56,7 @@ const data = [
   };
 
     return (
-      <Chart height={600} data={data} scale={cols} padding={[0, 0, 200, 0]} forceFit>
+      <Chart height={600} data={data} scale={cols} padding={[0, 0, 200, 0]} forceFit >
         <Coord type="polar" startAngle={-9 / 8 * Math.PI} endAngle={1 / 8 * Math.PI} radius={0.65} />
         <Axis
           name="value"
@@ -125,7 +125,7 @@ const data = [
             start={[0, 0.965]}
             end={[data[0].value, 0.965]}
             style={{ // 底灰色
-              stroke: '#1890FF',
+              stroke: '#8cc63f',
               lineWidth: 18,
             }}
           />
@@ -138,7 +138,7 @@ const data = [
           type="point"
           position="value*1"
           shape="pointer"
-          color="#1890FF"
+          color="#2BA2D6"
           active={false}
           style={{ stroke: '#fff', lineWidth: 1 }}
         />

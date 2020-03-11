@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
 import { Drawer, Button } from 'antd';
+import Logo from "../.././Logo.png";
 
 class Navbar extends Component {
 	state = {
@@ -24,7 +25,8 @@ class Navbar extends Component {
     return (
         <nav className="menuBar">
         	<div className="logo">
-        		<a href="/">DermPro</a>
+        		<a href="/">
+          		<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />DermPro</a>
         	</div>
         	<div className="menuCon">
         		<div className="leftMenu">
