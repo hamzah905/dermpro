@@ -11,6 +11,11 @@ const { TextArea } = Input;
 class ContactUsForm extends React.Component {
   state = { imageFile: null, loading: false, user: [] };
 
+  componentDidMount() {
+    const user = JSON.parse(localStorage.getItem('current_user'))
+    this.setState({ user: user });
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -18,12 +23,7 @@ class ContactUsForm extends React.Component {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/api/v1/contact_us?title=${values.title}&description=${values.description}`,
-          {
-            headers: {
-              "Authorization": `${localStorage.getItem('auth_token')}`
-            }
-          }
+          `${baseURL}/api/v1/contact_us?title=${values.title}&description=${values.description}&user_id=${this.state.user.id}`
         )
         .then(res => {
           this.setState({ loading: false });
