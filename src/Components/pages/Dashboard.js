@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
     </Col>
     </Row>
     <Col span={12}>
-        <h2 style={{textAlign: "center"}}>Doctors Subscription Rate:</h2>
+        <h2 style={{textAlign: "center"}}>Doctors Subscription Percentage:</h2>
           <Gauge percent = {this.state.doctor_subscription_rate} />
     </Col>
     <Row>
