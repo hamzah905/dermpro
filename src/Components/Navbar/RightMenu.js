@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+  Link
+} from "react-router-dom";
 import { Menu } from 'antd';
 // import SignUp from './SignUp'
 const SubMenu = Menu.SubMenu;
@@ -20,10 +23,10 @@ class RightMenu extends Component {
         </Menu.Item> */}
         <SubMenu title={<span>Hello! {this.state.user.email}</span>}>
             <Menu.Item key="setting:1">
-             <a href={`/users/${this.state.user.id}/edit`}>Update Profile</a>
+             <Link to={`/users/${this.state.user.id}/edit`}>Update Profile</Link>
             </Menu.Item>
             <Menu.Item key="setting:2">
-             <a href="/login">Logout</a>
+             <Link to="/login">Logout</Link>
             </Menu.Item>
         </SubMenu> 
       </Menu>
