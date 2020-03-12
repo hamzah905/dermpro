@@ -56,7 +56,7 @@ const data = [
   };
 
     return (
-      <Chart height={600} data={data} scale={cols} padding={[0, 0, 200, 0]} forceFit >
+      <Chart height={600} data={data} scale={cols} padding={[0, 0, 320, 0]} forceFit >
         <Coord type="polar" startAngle={-9 / 8 * Math.PI} endAngle={1 / 8 * Math.PI} radius={0.65} />
         <Axis
           name="value"

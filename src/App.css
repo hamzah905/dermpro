@@ -524,7 +524,8 @@ align-items: center;
   padding: 25px;
 }
 #canvas_3{
-  margin-top: -50px !important;
+  margin-top: -40px !important;
+  /* margin-bottom: -200px !important; */
   /* height: 450px !important;
   width: 380px !important;
   margin-left: 14% !important; */
