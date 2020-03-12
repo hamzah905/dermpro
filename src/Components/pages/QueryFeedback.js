@@ -17,7 +17,10 @@ class ApplyJobForm extends React.Component {
     this.setState({ imageFile: file });
   };
 
-  componentDidMount() {
+  async componentDidMount() {
+    try {
+      setInterval(async () => {
+
     axios.get(`${baseURL}/api/v1/query_spots/${parseInt(this.props.match.params.query_spot_id)}`,
     {
       headers: {
@@ -29,7 +32,15 @@ class ApplyJobForm extends React.Component {
         this.setState({ query_spot: query_spot });
         // debugger
       })
-  }
+      }, 3000);
+          } catch(e) {
+            console.log(e);
+          }
+        }
+
+componentWillUnmount() {
+  clearInterval(this.interval);
+}
 
   handleSubmit = event => {
     event.preventDefault();
@@ -54,13 +65,13 @@ class ApplyJobForm extends React.Component {
           console.log(res);
           console.log(res.data);
           this.setState({ loading: false });
-          this.props.history.push(`/patients`);
+          this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
           message.success("Feedback given Sucessfully", 2);  
         })
         .catch(error => {
             this.setState({ loading: false });
             setTimeout(() => {
-              this.props.history.push(`/patients`);
+              this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
             }, 500);
             message.error('Something went wrong!', 2);
             event.preventDefault();
