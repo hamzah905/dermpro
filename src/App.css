@@ -327,7 +327,7 @@ align-items: center;
   margin: 0 auto;
 }
 
-.custom-apply-search-btn:hover{
+.custom-apply-search-btn:hover, .custom-apply-search-btn:focus, .custom-apply-search-btn:active{
   background-color: #2BA2D6;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.29);
 }
