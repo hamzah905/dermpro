@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import DropIn from "braintree-web-drop-in-react";
+import Logo from "../.././Logo.png";
  
 class Store extends React.Component {
   instance;
@@ -40,12 +41,20 @@ class Store extends React.Component {
       );
     } else {
       return (
+        <div className="container">
+          <div className="custom-header">
+            <div className="custom-logo">
+              <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
+              <h2 className="page-title">SUBSCRIPTION</h2>
+            </div>
+          </div>
         <div>
           <DropIn
             options={{ authorization: this.state.clientToken }}
             onInstance={instance => (this.instance = instance)}
           />
           <button className="ant-btn payment-button" onClick={this.buy.bind(this)}>Buy</button>
+        </div>
         </div>
       );
     }
