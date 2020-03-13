@@ -34,7 +34,7 @@ const columns = [
       title: 'images',
       dataIndex: 'images',
       render: (text, record) => (
-      <p>{text.length}</p>
+      <span>{text.length}</span>
       ),
     },
     {
