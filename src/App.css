@@ -512,7 +512,7 @@ align-items: center;
 .payment-button{
   margin-left: 5%;
 }
-.payment-button:hover{
+.payment-button:hover, .payment-button:focus, .payment-button:active, .payment-button:visited{
   color: grey;
   border-color: grey;
 }
