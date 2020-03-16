@@ -12,11 +12,11 @@ class Customelabelpie extends React.Component {
   render() {
     const data = [
       {
-        sex: "Doctor",
+        sex: "Doctors",
         sold: 0.35
       },
       {
-        sex: "Patient",
+        sex: "Patients",
         sold: 0.65
       }
     ];
@@ -94,7 +94,9 @@ class Customelabelpie extends React.Component {
                 const IMG = `<img style="width:40px" src="${src}" /><br/>`;
                 return `<div style="text-align:center;color:${color}">${IMG}${(
                   text * 100
-                ).toFixed(0)}%</div>`;
+                ).toFixed(0)}%
+                <p>${item.point.sex}</p>
+                </div>`;
               }}
             />
           </Geom>
