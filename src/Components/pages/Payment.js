@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import Logo from "../.././Logo.png";
 import { message } from "antd";
@@ -65,4 +66,4 @@ class Store extends React.Component {
 }
 
 
-export default Store;
+export default withRouter(Store);
