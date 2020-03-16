@@ -54,7 +54,7 @@ class ContactUsForm extends React.Component {
         </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
     
-        <div className="custom-detail-section custom-style">
+        <div className="custom-detail-sectionn custom-style">
           <Form
             name="user_update_profile"
             onSubmit={this.handleSubmit}

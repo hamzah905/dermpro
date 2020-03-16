@@ -580,7 +580,7 @@ align-items: center;
 }
 
 @media screen and (min-width: 1024px) {
-  .custom-detail-section{
+  .custom-detail-sectionn{
       margin: 50px 200px;
   }
   .custom-style .ant-col-12{
