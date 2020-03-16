@@ -13,7 +13,7 @@ import Gauge from './Gauge'
 import {baseURL} from "../../utils";
 
 class Dashboard extends React.Component {
-    
+
   state = {
     salesData: [],
     doctor_subscription_rate: 0,
@@ -67,10 +67,10 @@ class Dashboard extends React.Component {
       <br></br>
     </Col>
     <Col span={12} style={{ marginTop: 24 }}>
-        <div style={{padding: "20px", }}>
+        <div>
         <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
         <br></br>
-          <Pie percent={100 - this.state.reports_pending_ratio} subTitle="Reports Pending Ratio" total={`${this.state.reports_pending_ratio}%`} height={140} color="#2BA2D6" />
+          <Pie percent={100 - this.state.reports_pending_ratio} total={`${this.state.reports_pending_ratio}%`} height={140} color="#2BA2D6" />
         </div>
     </Col>
     </Row>

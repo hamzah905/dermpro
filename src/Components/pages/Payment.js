@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import DropIn from "braintree-web-drop-in-react";
 import Logo from "../.././Logo.png";
+import { message } from "antd";
  
 class Store extends React.Component {
   instance;
@@ -27,7 +28,9 @@ class Store extends React.Component {
     await axios.get(`server.test/purchase/${nonce}`)
       .then(res => {
         console.log(res)
-        debugger
+        this.setState({ loading: false });
+        this.props.history.push(`/`);
+        message.success("Payments recieved Sucessfully", 2);
       })
     
   }
