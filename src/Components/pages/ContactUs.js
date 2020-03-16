@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Logo from "../.././Logo.png";
-import { Form, Row, Col, Input, Button, message, Spin } from "antd";
+import { Form, Select, Row, Col, Input, Button, message, Spin } from "antd";
 
 import {baseURL} from "../../utils";
 
@@ -23,7 +23,7 @@ class ContactUsForm extends React.Component {
       this.setState({loading: true})
       axios
         .post(
-          `${baseURL}/api/v1/contact_us?title=${values.title}&description=${values.description}&user_id=${this.state.user.id}`
+          `${baseURL}/api/v1/contact_us?title=${values.title}&purpose=${values.purpose}&description=${values.description}&user_id=${this.state.user.id}`
         )
         .then(res => {
           this.setState({ loading: false });
@@ -54,15 +54,15 @@ class ContactUsForm extends React.Component {
         </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
     
-        <div className="custom-detail-section">
+        <div className="custom-detail-section custom-style">
           <Form
             name="user_update_profile"
             onSubmit={this.handleSubmit}
             className="custom-feedback-form"
           >
             <Row>
-              <Col key="title">
-                <Form.Item name={`title`} label={`Title`}>
+              <Col span={12} key="title">
+                <Form.Item name={`title`}>
                   {getFieldDecorator(`title`,{
                     rules: [
                       {
@@ -73,8 +73,31 @@ class ContactUsForm extends React.Component {
                   })(<Input rows={4} placeholder="Title" />)}
                 </Form.Item>
               </Col>
-              <Col key="description">
-                <Form.Item name={`description`} label={`Description`}>
+              </Row>
+            <Row>
+              <Col span={12} key="purpose"> 
+                <Form.Item name={`purpose`}>
+                {getFieldDecorator(`purpose`,{
+                    rules: [
+                      {
+                        required: true,
+                        message: "purpose can't be blank!"
+                      }
+                    ]
+                  })
+                  (<Select placeholder="What's this about?">
+                    <Select.Option value="Problem logging in?">Problem logging in?</Select.Option>
+                    <Select.Option value="Issue uploading picture?">Issue uploading picture?</Select.Option>
+                    <Select.Option value="Issue sending message">Issue sending message</Select.Option>
+                    <Select.Option value="Questions Related to Subscription">Questions Related to Subscription</Select.Option>
+                    <Select.Option value="General Customer Support">General Customer Support</Select.Option>
+                  </Select>)}
+                </Form.Item>
+              </Col>
+              </Row>
+              <Row>
+              <Col span={12} key="description">
+                <Form.Item name={`description`}>
                   {getFieldDecorator(`description`,{
                     rules: [
                       {
@@ -82,7 +105,7 @@ class ContactUsForm extends React.Component {
                         message: "description can't be blank!"
                       }
                     ]
-                  })(<TextArea rows={4} placeholder="description" />)}
+                  })(<TextArea rows={4} placeholder="Go ahead, we're listening..." />)}
                 </Form.Item>
               </Col>
             </Row>
@@ -111,3 +134,4 @@ const WrappedAdvancedSearchForm = Form.create({ name: "user_update_profile" })(
   ContactUsForm
 );
 export default withRouter(WrappedAdvancedSearchForm);
+

@@ -377,6 +377,14 @@ align-items: center;
   /* height: 40px; */
 }
 
+.custom-detail-section .ant-select-selection{
+  /* border-radius: 50px; */
+  text-overflow: ellipsis;
+  border: transparent;
+  box-shadow: 0px 2px 4px #0000002e;
+  /* height: 40px; */
+}
+
 .ant-btn:hover, .ant-btn:focus{
   color: #ffffff;
 }
@@ -569,4 +577,13 @@ align-items: center;
   background-size: cover;
   object-fit: contain;
   height: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .custom-detail-section{
+      margin: 50px 200px;
+  }
+  .custom-style .ant-col-12{
+    width: 100% !important;
+  }
 }
