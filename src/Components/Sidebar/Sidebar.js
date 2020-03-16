@@ -20,7 +20,13 @@ const { Content, Footer, Sider } = Layout;
 class Sidebar extends Component {
   state = {
     collapsed: false,
+    user: {}
   };
+  
+  componentDidMount() {
+    const user = JSON.parse(localStorage.getItem('current_user'))
+    this.setState({ user: user });
+  }
 
   onCollapse = collapsed => {
     console.log(collapsed);
@@ -49,7 +55,7 @@ class Sidebar extends Component {
             </Menu.Item>
             <Menu.Item key="3">
               <Link to='/contact_us'>
-                <Icon type="user" />
+                <Icon type="contacts" />
                 <span>Contact Us</span>
               </Link>
             </Menu.Item>
@@ -58,6 +64,12 @@ class Sidebar extends Component {
                 <Icon type="file" />
                 <span>Get Subscription</span>
               </Link>
+            </Menu.Item>
+            <Menu.Item key="setting:1">
+             <Link to={`/users/${this.state.user.id}/edit`}>
+                <Icon type="user-add" />
+                <span>Update Profile</span>
+               </Link>
             </Menu.Item>
           </Menu>
         </Sider>

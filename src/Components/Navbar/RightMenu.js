@@ -22,9 +22,6 @@ class RightMenu extends Component {
           <a href="/login">Logout</a>
         </Menu.Item> */}
         <SubMenu title={<span>Hello! {this.state.user.email}</span>}>
-            <Menu.Item key="setting:1">
-             <Link to={`/users/${this.state.user.id}/edit`}>Update Profile</Link>
-            </Menu.Item>
             <Menu.Item key="setting:2">
              <Link to="/login">Logout</Link>
             </Menu.Item>
