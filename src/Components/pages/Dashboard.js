@@ -9,6 +9,7 @@ import Logo from "../.././Logo.png";
 import { Bar } from 'ant-design-pro/lib/Charts';
 import { Pie } from 'ant-design-pro/lib/Charts';
 import Gauge from './Gauge'
+import Customelabelpie from './Customelabelpie'
 
 import {baseURL} from "../../utils";
 
@@ -77,6 +78,10 @@ class Dashboard extends React.Component {
     <Col span={12}>
         <h2 style={{textAlign: "center"}}>Doctors Subscription Percentage:</h2>
           <Gauge percent = {this.state.doctor_subscription_rate} />
+    </Col>
+    <Col span={12}>
+        <h2 style={{textAlign: "center"}}>Doctors and Patients Ratio:</h2>
+        <Customelabelpie />
     </Col>
     <Row>
   </Row>
