@@ -17,8 +17,9 @@ class Dashboard extends React.Component {
 
   state = {
     salesData: [],
-    doctor_subscription_rate: 0,
-    reports_pending_ratio: 0
+    user_satisfaction_rate: 0,
+    reports_pending_ratio: 0,
+    doctor_with_patient_percentage: {doctor: 0, patient: 0 }
   }
 
   componentDidMount() {
@@ -38,7 +39,8 @@ class Dashboard extends React.Component {
           });
         }
         this.setState({ salesData: salesData });
-        this.setState({ doctor_subscription_rate: res.data.data.user.doctor_subscription_rate });
+        this.setState({ user_satisfaction_rate: res.data.data.user.user_satisfaction_rate });
+        this.setState({ doctor_with_patient_percentage: res.data.data.user.doctor_with_patient_percentage });
         this.setState({ reports_pending_ratio: res.data.data.user.reports_pending_ratio });
 
         // debugger
@@ -76,12 +78,12 @@ class Dashboard extends React.Component {
     </Col>
     </Row>
     <Col span={12}>
-        <h2 style={{textAlign: "center"}}>Doctors Subscription Percentage:</h2>
-          <Gauge percent = {this.state.doctor_subscription_rate} />
+        <h2 style={{textAlign: "center"}}>Patients Satisfaction Rate:</h2>
+          <Gauge percent = {this.state.user_satisfaction_rate} />
     </Col>
     <Col span={12}>
         <h2 style={{textAlign: "center"}}>Doctors and Patients Ratio:</h2>
-        <Customelabelpie />
+        <Customelabelpie doctor_with_patient_percentage={this.state.doctor_with_patient_percentage} />
     </Col>
     <Row>
   </Row>

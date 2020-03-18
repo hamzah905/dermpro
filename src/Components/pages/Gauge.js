@@ -131,7 +131,7 @@ const data = [
           />
           <Html
             position={['50%', '95%']}
-            html={() => (`<div style="width: 200px;text-align: center;font-size: 12px!important;"><p style="font-size: 1.75em; color: rgba(0,0,0,0.43);margin: 0;">Doctors</p><p style="font-size: 3em;color: rgba(0,0,0,0.85);margin: 0;">${this.props.percent}%</p></div>`)}
+            html={() => (`<div style="width: 200px;text-align: center;font-size: 12px!important;"><p style="font-size: 1.75em; color: rgba(0,0,0,0.43);margin: 0;">Patients</p><p style="font-size: 3em;color: rgba(0,0,0,0.85);margin: 0;">${this.props.percent}%</p></div>`)}
           />
         </Guide>
         <Geom
