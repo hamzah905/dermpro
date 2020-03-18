@@ -44,7 +44,7 @@ class Gauge extends React.Component {
   render() {
 
 const data = [
-    { value: this.props.percent / 10 },
+    { value: this.props.percent + 27 / 10 },
   ];
   const cols = {
     value: {
@@ -57,7 +57,7 @@ const data = [
 
     return (
       <Chart height={600} data={data} scale={cols} padding={[0, 0, 320, 0]} forceFit >
-        <Coord type="polar" startAngle={-9 / 8 * Math.PI} endAngle={1 / 8 * Math.PI} radius={0.65} />
+        <Coord type="polar" startAngle={-9 / 8 * Math.PI} endAngle={1 / 8 * Math.PI} radius={0.75} />
         <Axis
           name="value"
           zIndex={2}
@@ -131,7 +131,7 @@ const data = [
           />
           <Html
             position={['50%', '95%']}
-            html={() => (`<div style="width: 200px;text-align: center;font-size: 12px!important;"><p style="font-size: 1.75em; color: rgba(0,0,0,0.43);margin: 0;">Patients</p><p style="font-size: 3em;color: rgba(0,0,0,0.85);margin: 0;">${this.props.percent}%</p></div>`)}
+            html={() => (`<div style="width: 200px;text-align: center;font-size: 12px!important;"><p style="font-size: 1.75em; color: rgba(0,0,0,0.43);margin: 0;">Patients</p><p style="font-size: 3em;color: rgba(0,0,0,0.85);margin: 0;">${this.props.percent + 50}%</p></div>`)}
           />
         </Guide>
         <Geom

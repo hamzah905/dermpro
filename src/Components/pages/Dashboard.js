@@ -9,6 +9,7 @@ import Logo from "../.././Logo.png";
 import { Bar } from 'ant-design-pro/lib/Charts';
 import { Pie } from 'ant-design-pro/lib/Charts';
 import Gauge from './Gauge'
+import Pieslice from './Pieslice'
 import Customelabelpie from './Customelabelpie'
 
 import {baseURL} from "../../utils";
@@ -64,16 +65,21 @@ class Dashboard extends React.Component {
       <Col span={12}>
       <div style={{padding: "20px"}}>
         <h2>Patients Per Week:</h2>
-        <Bar height={200} data={salesData} color="#2BA2D6" />
+        <br></br>
+        <br></br>
+        <br></br>
+        <Bar height={250} data={salesData} color="#2BA2D6" />
         {console.log(salesData)}
       </div>
       <br></br>
     </Col>
-    <Col span={12} style={{ marginTop: 24 }}>
+    <Col span={12} style={{ marginTop: 24, marginBottom: -235 }}>
         <div>
         <h2 style={{textAlign: "center"}}>Total Reports Pending Ratio:</h2>
         <br></br>
-          <Pie percent={100 - this.state.reports_pending_ratio} total={`${this.state.reports_pending_ratio}%`} height={140} color="#2BA2D6" />
+        {console.log("sbaxj",this.state.reports_pending_ratio)}
+          <Pieslice percent={100 - this.state.reports_pending_ratio} total={this.state.reports_pending_ratio} />
+          {/* <Pie percent={100 - this.state.reports_pending_ratio} total={`${this.state.reports_pending_ratio}%`} height={140} color="#2BA2D6" /> */}
         </div>
     </Col>
     </Row>

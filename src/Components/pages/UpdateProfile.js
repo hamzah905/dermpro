@@ -25,7 +25,6 @@ class UpdateProfileForm extends React.Component {
       .then(res => {
         var user = res.data.data.user;
         this.setState({ user });
-        // debugger
       })
   }
 
