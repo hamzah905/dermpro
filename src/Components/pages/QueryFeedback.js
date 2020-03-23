@@ -199,7 +199,7 @@ componentWillUnmount() {
                   console.log("No image")
                   }
                   </Descriptions.Item>
-                  <Descriptions.Item style={{textAlign: "right"}}>
+                  <Descriptions.Item style={{textAlign: "right"}} className="custom-chat-style">
                     <span style={{color:"#ffffff"}}>{feedback.created_at}</span>
                   </Descriptions.Item>
                 </Descriptions>
@@ -217,7 +217,7 @@ componentWillUnmount() {
                   console.log("No image")
                   }
                   </Descriptions.Item>
-                  <Descriptions.Item style={{textAlign: "right"}}>
+                  <Descriptions.Item style={{textAlign: "right"}} className="custom-chat-style">
                     <span style={{color:"#ffffff"}}>{feedback.created_at}</span>
                   </Descriptions.Item>
                 </Descriptions>

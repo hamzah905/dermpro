@@ -581,6 +581,11 @@ align-items: center;
   object-fit: contain;
   height: 100%;
 }
+.custom-chat-style{
+  display: block;
+  margin-right: 10px;
+  text-align: right;
+}
 
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{
