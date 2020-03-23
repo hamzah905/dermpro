@@ -186,35 +186,40 @@ componentWillUnmount() {
 
             {
                 feedback.user_role === "patient" ? 
-                <Descriptions style={{backgroundColor: "#2BA2D6", textAlign: "left",borderRadius:"5px" }}>
-                    <Descriptions.Item className="custom-blog-content-right">
-                    <h2>{feedback.title}</h2>
-                    <div style={{color:"#ffffff"}}>{feedback.message}</div>
-                    </Descriptions.Item>
-                    {
-                     feedback.image ?
-                    <Descriptions.Item className="custom-blog-img">
+                <Descriptions style={{backgroundColor: "#2BA2D6",borderRadius:"5px" }}>
+                  <Descriptions.Item className="custom-blog-content-right">
+                  <h2>{feedback.title}</h2>
+                  <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
+                  {
+                  feedback.image ?
+                  <div className="custom-blog-img">
                     <img src={`${baseURL}/${feedback.image}`} alt="new"/>
-                    </Descriptions.Item>
-                    :
-                    console.log("No image")
-                    }
+                  </div>
+                  :
+                  console.log("No image")
+                  }
+                  </Descriptions.Item>
+                  <Descriptions.Item style={{textAlign: "right"}}>
+                    <span style={{color:"#ffffff"}}>{feedback.created_at}</span>
+                  </Descriptions.Item>
                 </Descriptions>
                 :
-                <Descriptions style={{backgroundColor: "rgb(175, 222, 112)", textAlign: "right", borderRadius:"5px"}}>
+                <Descriptions style={{backgroundColor: "rgb(175, 222, 112)", borderRadius:"5px"}}>
+                <Descriptions.Item className="custom-blog-content-right">
+                <h2>{feedback.title}</h2>
+                <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
                 {
                  feedback.image ?
-                    <Descriptions.Item className="custom-blog-img">
-                    <img src={`${baseURL}/${feedback.image}`} alt="new"/>
-                    </Descriptions.Item>
-                    :
-                    console.log("No image")
-                    }
-                  
-                    <Descriptions.Item className="custom-blog-content-left">
-                    <h2>{feedback.title}</h2>
-                    <div style={{color:"#ffffff"}}>{feedback.message}</div>
-                    </Descriptions.Item>
+                <div className="custom-blog-img">
+                  <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                </div>
+                :
+                console.log("No image")
+                }
+                </Descriptions.Item>
+                <Descriptions.Item style={{textAlign: "right"}}>
+                  <span style={{color:"#ffffff"}}>{feedback.created_at}</span>
+                </Descriptions.Item>
                 </Descriptions>
             }
         </div>
