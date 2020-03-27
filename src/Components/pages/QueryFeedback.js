@@ -97,13 +97,14 @@ componentWillUnmount() {
     </div>
 
     <div className="custom-detail-section custom-job-section">
-        <Descriptions>
+        <Descriptions className="custom-desc">
           <Descriptions.Item label="Disease">{query_spot.disease}</Descriptions.Item>
           <Descriptions.Item label="Scan Place">{query_spot.query_spot_place}</Descriptions.Item>
           <Descriptions.Item label="Message">{query_spot.message}</Descriptions.Item>
           <Descriptions.Item label="Created At">
             {query_spot.created_at}
           </Descriptions.Item>
+          <Descriptions.Item label="Feedbacks">{query_spot.feedbacks.length}</Descriptions.Item>
           <br></br>
         </Descriptions>
         </div>

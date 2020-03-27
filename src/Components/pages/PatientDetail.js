@@ -57,9 +57,10 @@ class PatitenDetail extends React.Component {
           <br></br>
         </Descriptions>
         <br></br>
+        <br></br>
         <Row>
             <Col span={24}>
-                <h4>Patient Scans:</h4>
+                <h3>Patient Scans:</h3>
               <div className="custom-bottom-btn">
                 <QuerySpotTable query_spots={patient.query_spots} patient_id={patient.id} />
               </div>

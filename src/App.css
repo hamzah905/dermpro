@@ -619,11 +619,14 @@ align-items: center;
   border-radius: 10px;
   box-shadow: 0px 0px 6px #0000000a;
 }
-.ant-descriptions-row>td {
+.custom-desc .ant-descriptions-row>td {
   padding: 15px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #cccc;
 }
+/* .ant-menu-item { background-color: #F0F2F5; } */
+.ant-menu-item .anticon { font-size: 16px; }
+/* .ant-menu-item span { color: #42A3D6; } */
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{
       margin: 50px 200px;
