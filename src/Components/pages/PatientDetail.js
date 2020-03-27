@@ -46,7 +46,7 @@ class PatitenDetail extends React.Component {
         <p>{patient.location}</p>
         </div>
         <div className="custom-detail-section custom-job-section">
-        <Descriptions>
+        <Descriptions className="custom-desc">
           <Descriptions.Item label="Patient Name">{patient.first_name} {patient.last_name}</Descriptions.Item>
           <Descriptions.Item label="Email">{patient.email}</Descriptions.Item>
           <Descriptions.Item label="Gender">{patient.gender}</Descriptions.Item>
