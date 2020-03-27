@@ -15,10 +15,6 @@ function onChange(pagination, filters, sorter, extra) {
   }
 
 const columns = [
-  {
-    title: 'ID',
-    dataIndex: 'id',
-  },
     {
       title: 'Name',
       dataIndex: 'first_name',
@@ -43,10 +39,6 @@ const columns = [
     {
       title: 'Contact No',
       dataIndex: 'contact_no',
-    },
-    {
-      title: 'Created At',
-      dataIndex: 'created_at',
     },
     {
         title: 'Action',
@@ -77,7 +69,7 @@ class Patients extends React.Component {
             Object.entries(values).map(([key, val]) => {
                 new_values[key] = (val === undefined) ? "" : val;
             })
-            axios.get(`${baseURL}/api/v1/search_patients?email=${new_values.email}&name=${new_values.name}`,
+            axios.get(`${baseURL}/api/v1/search_patients?search=${new_values.search}`,
             {
               headers: {
                 "Authorization": `${localStorage.getItem('auth_token')}`
@@ -125,18 +117,11 @@ class Patients extends React.Component {
                         className="ant-advanced-search-form"
                         onSubmit={this.handleSubmit}>
                         <Row gutter={24}>
-                            <Col span={8} key='name' className="ant-advanced-search-title" >
+                            <Col span={8} key='search' className="ant-advanced-name-title" >
                                 <Form.Item
-                                    name={`Name`}
+                                    name={`search`}
                                 >
-                                    {getFieldDecorator(`name`)(<Input placeholder="name" />)}
-                                </Form.Item>
-                            </Col>
-                            <Col span={8} key='email' className="ant-advanced-search-title" >
-                                <Form.Item
-                                    name={`Email`}
-                                >
-                                    {getFieldDecorator(`email`)(<Input placeholder="email" />)}
+                                    {getFieldDecorator(`search`)(<Input placeholder="search" />)}
                                 </Form.Item>
                             </Col>
                             <Col

@@ -145,7 +145,7 @@ class UpdateProfileForm extends React.Component {
                         message: "Contact No can't be blank!"
                       }
                     ]
-                  })(<Input rows={4} placeholder="12345678910" />)}
+                  })(<Input rows={4} placeholder="12345678910" disabled = "disabled" />)}
                 </Form.Item>
               </Col>
             <Col key="avatar">

@@ -15,10 +15,6 @@ function onChange(pagination, filters, sorter, extra) {
 
 const columns = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-  },
-  {
     title: 'Disease',
     dataIndex: 'disease',
   },
