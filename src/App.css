@@ -586,6 +586,12 @@ align-items: center;
   margin-right: 10px;
   text-align: right;
 }
+.ant-table-wrapper{
+  width: 100%;
+}
+.ant-advanced-name-title{
+  width: 55%;
+}
 
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{

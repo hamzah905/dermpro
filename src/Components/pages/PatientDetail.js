@@ -4,7 +4,7 @@ import {
      withRouter
   } from "react-router-dom";
 
-import { Row, Col, Descriptions } from 'antd';
+import { Row, Col, Descriptions, Spin } from 'antd';
 import Logo from "../.././Logo.png";
 import {baseURL} from "../../utils";
 import QuerySpotTable from './QuerySpotTable'
@@ -12,7 +12,8 @@ import QuerySpotTable from './QuerySpotTable'
 class PatitenDetail extends React.Component {
     
   state = {
-    patient: []
+    patient: [],
+    loading: true
   }
 
   componentDidMount() {
@@ -24,7 +25,7 @@ class PatitenDetail extends React.Component {
     })
       .then(res => {
         var patient = res.data.data.user;
-        this.setState({ patient });
+        this.setState({ patient, loading: false });
       })
   }
   render() {
@@ -39,6 +40,7 @@ class PatitenDetail extends React.Component {
           </div>
         </div>
        
+        <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
       <div className="custom-detail-heading">
         <h1>{patient.title}</h1>
         <p>{patient.location}</p>
@@ -57,13 +59,14 @@ class PatitenDetail extends React.Component {
         <br></br>
         <Row>
             <Col span={24}>
-                <h4>Patient Query Spots:</h4>
+                <h4>Patient Scans:</h4>
               <div className="custom-bottom-btn">
                 <QuerySpotTable query_spots={patient.query_spots} patient_id={patient.id} />
               </div>
             </Col>
           </Row>
         </div>
+       </Spin>
         
         </div>
     );

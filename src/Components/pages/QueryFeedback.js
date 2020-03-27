@@ -10,7 +10,7 @@ import {baseURL} from "../../utils";
 const { TextArea } = Input;
 
 class ApplyJobForm extends React.Component {
-  state = { imageFile: null, message: "", loading: false, query_spot: { images: [], feedbacks: []} };
+  state = { imageFile: null, message: "", loading: true, query_spot: { images: [], feedbacks: []} };
 
   onSelectImageFile = file => {
     console.log(file,'image file')
@@ -29,7 +29,7 @@ class ApplyJobForm extends React.Component {
     })
       .then(res => {
         var query_spot = res.data.data.query_spot;
-        this.setState({ query_spot: query_spot });
+        this.setState({ query_spot: query_spot, loading: false });
         // debugger
       })
       }, 3000);
@@ -92,7 +92,7 @@ componentWillUnmount() {
     <div className="custom-header">
         <div className="custom-logo" style={{marginRight: "6%"}}>
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
-          <h2 className="page-title">Query Spot</h2>
+          <h2 className="page-title">SCAN DETAIL</h2>
         </div>
     </div>
 
