@@ -90,8 +90,8 @@ import {
     const { getFieldDecorator } = this.props.form;
 
   return (
-    <div>
-    <div className="custom-header" style={{margin: "30px 0px 50px"}}>
+    <div className="custom-auth-page">
+    <div className="custom-header custom-auth-header" style={{margin: "30px 0px 50px"}}>
         <div className="custom-logo">
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
           <h2 className="page-title">Login</h2>
@@ -129,7 +129,7 @@ import {
                       }
                     ]
                   })(<Input.Password placeholder="password" />)}
-                      <a href="/forget_password">Forgot your password.</a>
+                      <a style={{color: "#2BA2D6"}} href="/forget_password">Forgot your password.</a>
                 </Form.Item>
               </Col>
             </Row>
@@ -145,27 +145,29 @@ import {
                     ]
                   })(
                 <Checkbox>
-                  I have read the <a href="/">agreement</a>
+                  I have read the <a style={{color: "#2BA2D6"}} href="/">agreement</a>
                 </Checkbox>
                 )}
               </Form.Item>
               </Col>
             </Row>
             <Row>
-              <Col>
-                  <a href="/sign_up">Create a new account</a>
+              <Col >
+                <div className="custom-bottom-btn">
+                <Button
+                    type="primary  primary-btnn"
+                    className="custom-apply-search-btn"
+                    htmlType="submit"
+                    style={{width: "14%", marginLeft: "43%"}}
+                  >
+                    Login
+                  </Button>
+                </div>
               </Col>
             </Row>
             <Row>
-              <Col >
-                <div className="custom-bottom-btn" style={{textAlign: "right"}}>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                  >
-                    Submit
-                  </Button>
-                </div>
+              <Col>
+                  <a style={{color: "#2BA2D6"}} href="/sign_up">Create a new account</a>
               </Col>
             </Row>
           </Form>

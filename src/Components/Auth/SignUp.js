@@ -83,8 +83,8 @@ import {
     const { getFieldDecorator } = this.props.form;
 
   return (
-    <div>
-    <div className="custom-header" style={{margin: "30px 0px 50px"}}>
+    <div  className="custom-auth-page">
+    <div className="custom-header custom-auth-header" style={{margin: "30px 0px 50px"}}>
         <div className="custom-logo">
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
           <h2 className="page-title">SignUp</h2>
@@ -151,7 +151,7 @@ import {
                     ]
                   })(
                 <Checkbox>
-                  I have read the <a href="/">agreement</a>
+                  I have read the <a style={{color: "#2BA2D6"}} href="/">agreement</a>
                 </Checkbox>
                 )}
               </Form.Item>
@@ -159,17 +159,19 @@ import {
             </Row>
             <Row>
               <Col>
-                  <a href="/login">Already have a account</a>
+                  <a style={{color: "#2BA2D6"}} href="/login">Already have a account</a>
               </Col>
             </Row>
             <Row>
               <Col >
-                <div className="custom-bottom-btn" style={{textAlign: "right"}}>
-                  <Button
-                    type="primary"
+                <div className="custom-bottom-btn">
+                <Button
+                    type="primary  primary-btnn"
+                    className="custom-apply-search-btn"
                     htmlType="submit"
+                    style={{width: "19%", marginLeft: "43%"}}
                   >
-                    Submit
+                    Register
                   </Button>
                 </div>
               </Col>

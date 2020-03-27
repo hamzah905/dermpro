@@ -88,8 +88,8 @@ import {
     const { getFieldDecorator } = this.props.form;
 
   return (
-    <div>
-    <div className="custom-header" style={{margin: "30px 0px 50px"}}>
+    <div  className="custom-auth-page">
+    <div className="custom-header custom-auth-header" style={{margin: "30px 0px 50px"}}>
         <div className="custom-logo">
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
           <h2 className="page-title">Forget Password</h2>
@@ -118,10 +118,12 @@ import {
             </Row>
             <Row>
               <Col >
-                <div className="custom-bottom-btn" style={{textAlign: "right"}}>
-                  <Button
-                    type="primary"
+                <div className="custom-bottom-btn">
+                <Button
+                    type="primary  primary-btnn"
+                    className="custom-apply-search-btn"
                     htmlType="submit"
+                    style={{width: "17%", marginLeft: "43%"}}
                   >
                     Submit
                   </Button>
