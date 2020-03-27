@@ -63,8 +63,8 @@ const columns = [
         dataIndex: 'id',
         render: (text, record) => (
           <span>
-          <Button className="custom-apply-search-btn" style={{width: "84%", fontSize: "small"}}>
-            <Link to={`/query_spots/${record.id}/feedback`} style={{color: "#ffffff"}} >Feedback</Link>
+          <Button className="custom-apply-search-btn" style={{width: "64%", fontSize: "small"}}>
+            <Link to={`/query_spots/${record.id}/feedback`} style={{color: "#ffffff"}} >View</Link>
           </Button>
           </span>
         ),
