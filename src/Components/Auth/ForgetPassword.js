@@ -117,6 +117,11 @@ import {
               </Col>
             </Row>
             <Row>
+              <Col>
+                  <a style={{color: "#2BA2D6"}} href="/login">back to login page.</a>
+              </Col>
+            </Row>
+            <Row>
               <Col >
                 <div className="custom-bottom-btn">
                 <Button
