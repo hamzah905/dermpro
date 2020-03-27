@@ -7,7 +7,7 @@ import { Row, Col } from 'antd';
 
 import Logo from "../.././Logo.png";
 import { Bar } from 'ant-design-pro/lib/Charts';
-import { Pie } from 'ant-design-pro/lib/Charts';
+// import { Pie } from 'ant-design-pro/lib/Charts';
 import Gauge from './Gauge'
 import Pieslice from './Pieslice'
 import Customelabelpie from './Customelabelpie'

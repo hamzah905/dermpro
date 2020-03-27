@@ -87,7 +87,7 @@ import {
     <div className="custom-header" style={{margin: "30px 0px 50px"}}>
         <div className="custom-logo">
           <img src={Logo} className="App-logo" alt="logo" width="30" height="30" />
-          <h2 className="page-title">Login</h2>
+          <h2 className="page-title">SignUp</h2>
         </div>
     </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
