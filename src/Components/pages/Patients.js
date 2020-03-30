@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import { Table, Form, Row, Col, Input, Button, Spin} from 'antd';
+import { Table, Form, Row, Col, Input, Button, Spin, Tag} from 'antd';
 
 import {
     Link, withRouter
@@ -39,6 +39,25 @@ const columns = [
     {
       title: 'Contact No',
       dataIndex: 'contact_no',
+    },
+    {
+      title: 'Feedback',
+      key: 'pending_qs',
+      dataIndex: 'pending_qs',
+      render: pending_qs => (
+        <span>
+          {
+          pending_qs ?
+            <Tag color={'volcano'} key={"pending"}>
+              Pending
+            </Tag>
+          :
+            <Tag color={'green'} key={"done"}>
+              Done
+            </Tag>
+          }
+        </span>
+      ),
     },
     {
         title: 'Action',

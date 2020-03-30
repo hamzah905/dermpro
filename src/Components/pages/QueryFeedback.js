@@ -126,6 +126,20 @@ componentWillUnmount() {
             className="custom-feedback-form"
           >
             <Row>
+              <Col >
+                <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
+                  <Button
+                    type="primary  primary-btnn"
+                    className="custom-apply-search-btn"
+                    htmlType="submit"
+                    style={{width: "14%", marginLeft: "43%"}}
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+            <Row className="custom-chat">
               <Col key="message">
                 <Form.Item name={`message`} label={`Doctor's Feedback`}>
                   {getFieldDecorator(`message`, {
@@ -163,20 +177,6 @@ componentWillUnmount() {
                     </Upload>
                   )}
                 </Form.Item>
-              </Col>
-            </Row>
-            <Row>
-              <Col >
-                <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
-                  <Button
-                    type="primary  primary-btnn"
-                    className="custom-apply-search-btn"
-                    htmlType="submit"
-                    style={{width: "14%", marginLeft: "43%"}}
-                  >
-                    Submit
-                  </Button>
-                </div>
               </Col>
             </Row>
           </Form>
