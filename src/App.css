@@ -634,10 +634,19 @@ align-items: center;
 }
 .custom-chat { 
   display: inline-flex;
+  width: 100%;
   background-color: #F3F3F3;
   padding: 10px;
   border-radius: 10px;
 }
+.custom-chat-image{
+  padding: 40px 30px 30px 30px;
+  padding-top: 60px;
+}
+.custom-chat-submit{
+  padding: 33px 0px 25px 0px;
+}
+
 /* .ant-menu-item span { color: #42A3D6; } */
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{
