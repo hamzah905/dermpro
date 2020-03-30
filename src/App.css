@@ -652,6 +652,10 @@ align-items: center;
   padding: 33px 0px 25px 0px;
 }
 
+.ant-descriptions-view{
+  border-radius: 10px;
+}
+
 /* .ant-menu-item span { color: #42A3D6; } */
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{

@@ -11,7 +11,6 @@ const { TextArea } = Input;
 
 class ApplyJobForm extends React.Component {
   state = { imageFile: null, message: "", loading: true, query_spot: { images: [], feedbacks: []} };
-
   onSelectImageFile = file => {
     console.log(file,'image file')
     this.setState({ imageFile: file });
@@ -185,8 +184,8 @@ componentWillUnmount() {
 
             {
                 feedback.user_role === "patient" ? 
-                <Descriptions style={{backgroundColor: "#2BA2D6",borderRadius:"5px" }}>
-                  <Descriptions.Item className="custom-blog-content-right">
+                <Descriptions style={{backgroundColor: "rgb(115, 167, 189)", borderRadius: "0px 0px 10px 10px" }}>
+                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "0px 0px 10px 10px" }}>
                   <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4>
                   <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
                   {
@@ -203,8 +202,8 @@ componentWillUnmount() {
                   </Descriptions.Item>
                 </Descriptions>
                 :
-                <Descriptions style={{backgroundColor: "rgb(175, 222, 112)", borderRadius:"5px"}}>
-                  <Descriptions.Item className="custom-blog-content-right">
+                <Descriptions style={{backgroundColor: "rgb(167, 208, 112)", borderRadius:"10px 10px 0px 0px"}}>
+                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "0px 0px 10px 10px" }}>
                   <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4>
                   <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
                   {
