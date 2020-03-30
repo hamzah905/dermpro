@@ -632,6 +632,12 @@ align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+.custom-chat { 
+  display: inline-flex;
+  background-color: #F3F3F3;
+  padding: 10px;
+  border-radius: 10px;
+}
 /* .ant-menu-item span { color: #42A3D6; } */
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{

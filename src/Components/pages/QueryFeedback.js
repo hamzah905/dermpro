@@ -126,7 +126,7 @@ componentWillUnmount() {
             className="custom-feedback-form"
           >
           <Row className="custom-chat">
-              <Col key="message">
+              <Col key="message"  span={12}>
                 <Form.Item name={`message`} label={`Doctor's Feedback`}>
                   {getFieldDecorator(`message`, {
                     rules: [
@@ -138,8 +138,8 @@ componentWillUnmount() {
                   })(<TextArea rows={4} placeholder="Put your descriptive feedback here..." />)}
                 </Form.Item>
               </Col>
-            <Col key="image">
-                <Form.Item name={`Image`} label={`Feedback Attachment`}>
+            <Col key="image"  span={6}>
+                <Form.Item name={`Image`}>
                   {getFieldDecorator(`image`)(
                     <Upload 
                       fileList={imageFile ? [imageFile] : []}
@@ -164,13 +164,13 @@ componentWillUnmount() {
                   )}
                 </Form.Item>
               </Col>
-              <Col >
+              <Col  span={6}>
                 <div className="custom-bottom-btn custom-bottom-btnn" style={{textAlign: "right"}}>
                   <Button
                     type="primary  primary-btnn"
                     className="custom-apply-search-btn"
                     htmlType="submit"
-                    style={{width: "14%", marginLeft: "43%"}}
+                    style={{width: "134%", marginLeft: "43%"}}
                   >
                     Submit
                   </Button>
