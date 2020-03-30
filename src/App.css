@@ -600,6 +600,7 @@ align-items: center;
   -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.16);
   box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.16);
   margin-top: 100px;
+  background-color: #ffffff;
 }
 .custom-auth-header { padding: 30px 0px; }
 .custom-auth-page .ant-input {
@@ -617,7 +618,7 @@ align-items: center;
 .custom-desc{
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 6px #0000000a;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
 }
 .custom-desc .ant-descriptions-row>td {
   padding: 15px;
@@ -627,10 +628,14 @@ align-items: center;
 /* .ant-menu-item { background-color: #F0F2F5; } */
 .ant-menu-item .anticon { font-size: 16px; }
 
-.custom-auth-page{ 
-  background-image: url('https://st2.depositphotos.com/3503231/6689/v/950/depositphotos_66895623-stock-illustration-blue-white-polygonal-mosaic-background.jpg');
+.custom-wrapper{ 
+  background-image: url('https://img.pngio.com/hd-images-for-website-background-best-background-images-hd-background-designs-for-websites-png-600_600.png');
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+}
+.ant-advanced-name-title{
+  width: 66%;
 }
 .custom-chat { 
   display: inline-flex;

@@ -90,7 +90,7 @@ import {
     const { getFieldDecorator } = this.props.form;
 
   return (
-    <div className="custom-wapper">
+    <div className="custom-wrapper">
     <div className="custom-auth-page">
     <div className="custom-header custom-auth-header" style={{margin: "30px 0px 50px"}}>
         <div className="custom-logo">
