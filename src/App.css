@@ -627,11 +627,11 @@ align-items: center;
 /* .ant-menu-item { background-color: #F0F2F5; } */
 .ant-menu-item .anticon { font-size: 16px; }
 
-/* .custom-wrapper{ 
-  background-image: url(‘’);
+.custom-auth-page{ 
+  background-image: url('https://st2.depositphotos.com/3503231/6689/v/950/depositphotos_66895623-stock-illustration-blue-white-polygonal-mosaic-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
 /* .ant-menu-item span { color: #42A3D6; } */
 @media screen and (min-width: 1024px) {
   .custom-detail-sectionn{
