@@ -68,7 +68,12 @@ import {
             this.setState({ loading: false });
             message.error("Only doctor can login to doctor's panel", 2);
             return false;
-
+          }
+          else if(res.data.data.user.is_activated === false){
+            this.props.history.push("/login");
+            this.setState({ loading: false });
+            message.error("Your account is yet to be approved!", 2);
+            return false;
           }
           localStorage.setItem('auth_token', res.data.data.auth_token);
           localStorage.setItem('current_user', JSON.stringify(res.data.data.user));

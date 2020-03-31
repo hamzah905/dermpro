@@ -63,6 +63,12 @@ import {
             message.error(res.data.data.message, 2);
             return false;
           }
+          else if(res.data.data.user.is_activated === false){
+            this.props.history.push("/login");
+            this.setState({ loading: false });
+            message.success("Your account approval request sent to admin, thanks for using dermpro!", 2);
+            return false;
+          }
           localStorage.setItem('auth_token', res.data.data.auth_token);
           localStorage.setItem('current_user', JSON.stringify(res.data.data.user));
           this.setState({ loading: false });
