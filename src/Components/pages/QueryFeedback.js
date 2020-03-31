@@ -111,7 +111,9 @@ componentWillUnmount() {
         { query_spot.images.map((image, index)=>
           <div key = {index} className="custom-detail-section custom-blog-section">
             <div className="custom-spot-img">
-            <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/>
+            <a href={`${baseURL}/${image}`} target="_blank">
+              <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/>
+            </a>
             </div>
           </div>
         )}
