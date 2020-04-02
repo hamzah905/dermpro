@@ -193,7 +193,9 @@ componentWillUnmount() {
                   {
                   feedback.image ?
                   <div className="custom-blog-img">
-                    <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                    <a href={`${baseURL}/${feedback.image}`} target="_blank">
+                      <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                    </a>
                   </div>
                   :
                   console.log("No image")
@@ -211,7 +213,9 @@ componentWillUnmount() {
                   {
                   feedback.image ?
                   <div className="custom-blog-img">
-                    <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                    <a href={`${baseURL}/${feedback.image}`} target="_blank">
+                      <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                    </a>
                   </div>
                   :
                   console.log("No image")
