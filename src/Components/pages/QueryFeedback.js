@@ -186,8 +186,8 @@ componentWillUnmount() {
 
             {
                 feedback.user_role === "patient" ? 
-                <Descriptions style={{backgroundColor: "rgb(115, 167, 189)", borderRadius: "0px 0px 10px 10px" }}>
-                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "0px 0px 10px 10px" }}>
+                <Descriptions style={{backgroundColor: "rgb(115, 167, 189)", borderRadius: "10px 10px 10px 10px" }}>
+                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "10px 10px 10px 10px" }}>
                   <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4>
                   <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
                   {
@@ -206,8 +206,8 @@ componentWillUnmount() {
                   </Descriptions.Item>
                 </Descriptions>
                 :
-                <Descriptions style={{backgroundColor: "rgb(167, 208, 112)", borderRadius:"10px 10px 0px 0px"}}>
-                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "0px 0px 10px 10px" }}>
+                <Descriptions style={{backgroundColor: "rgb(167, 208, 112)", borderRadius:"10px 10px 10px 10px"}}>
+                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "10px 10px 10px 10px" }}>
                   <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4>
                   <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
                   {
