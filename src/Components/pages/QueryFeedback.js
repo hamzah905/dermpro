@@ -4,13 +4,13 @@ import { withRouter } from "react-router-dom";
 import Logo from "../.././Logo.png";
 import { Form, Row, Col, Input, Button, message, Spin, Upload, Descriptions } from "antd";
 
-// import LinkedinButton from "./LinkedinButton";
+import UpdateDisease from "./UpdateDisease";
 import {baseURL} from "../../utils";
 
 const { TextArea } = Input;
 
 class ApplyJobForm extends React.Component {
-  state = { imageFile: null, message: "", loading: true, query_spot: { images: [], feedbacks: []} };
+  state = { imageFile: null, message: "", visible: false , loading: true, query_spot: { images: [], feedbacks: []} };
   onSelectImageFile = file => {
     console.log(file,'image file')
     this.setState({ imageFile: file });
@@ -97,7 +97,10 @@ componentWillUnmount() {
 
     <div className="custom-detail-section custom-job-section">
         <Descriptions className="custom-desc">
-          <Descriptions.Item label="Disease">{query_spot.disease}</Descriptions.Item>
+          <Descriptions.Item label="Disease" className= "inline-desc">
+            {query_spot.disease} 
+            <UpdateDisease query_spot = {query_spot} />
+          </Descriptions.Item>
           <Descriptions.Item label="Scan Place">{query_spot.query_spot_place}</Descriptions.Item>
           <Descriptions.Item label="Message">{query_spot.message}</Descriptions.Item>
           <Descriptions.Item label="Created At">
