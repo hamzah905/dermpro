@@ -190,7 +190,7 @@
 }
 .custom-detail-section{
   display: flex;
-  margin: 50px;
+  margin: 40px;
   display: flex;
   border-bottom: 1px solid #eceeef;
   padding-bottom: 10px;
@@ -652,10 +652,10 @@ align-items: center;
 }
 .custom-chat-image{
   padding: 40px 30px 30px 30px;
-  padding-top: 60px;
+  padding-top: 42px;
 }
 .custom-chat-submit{
-  padding: 33px 0px 25px 0px;
+  padding: 16px 0px 25px 0px;
 }
 
 .ant-descriptions-view{

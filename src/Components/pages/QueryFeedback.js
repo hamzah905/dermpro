@@ -131,7 +131,7 @@ componentWillUnmount() {
           >
           <Row className="custom-chat">
               <Col key="message"  span={16}>
-                <Form.Item name={`message`} label={`Doctor's Feedback`}>
+                <Form.Item name={`message`} label={`Doctor's Feedback`} style={{marginBottom: "0px"}}>
                   {getFieldDecorator(`message`, {
                     rules: [
                       {
@@ -139,7 +139,7 @@ componentWillUnmount() {
                         message: "Feedback can't be blank!"
                       }
                     ]
-                  })(<TextArea rows={4} placeholder="Put your descriptive feedback here..." />)}
+                  })(<TextArea rows={2} placeholder="Put your descriptive feedback here..." />)}
                 </Form.Item>
               </Col>
             <Col key="image"  span={4} className="custom-chat-image">
