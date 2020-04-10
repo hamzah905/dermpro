@@ -188,46 +188,60 @@ componentWillUnmount() {
         <div key = {index} className="custom-detail-section custom-blog-section">
 
             {
-                feedback.user_role === "patient" ? 
-                <Descriptions style={{backgroundColor: "rgb(115, 167, 189)", borderRadius: "10px 10px 10px 10px" }}>
-                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "10px 10px 10px 10px" }}>
-                  <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4>
-                  <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
-                  {
-                  feedback.image ?
-                  <div className="custom-blog-img">
-                    <a href={`${baseURL}/${feedback.image}`} target="_blank">
-                      <img src={`${baseURL}/${feedback.image}`} alt="new"/>
-                    </a>
+                feedback.user_role === "patient" ?
+                <Row className="custom-chat-roww">
+                  <Col span={11} className="custom-chat-block">
+                  <Descriptions style={{backgroundColor: "rgb(115, 167, 189)", borderRadius: "10px 0px 10px 10px" }}>
+                    <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "10px 0px 10px 10px" }}>
+                    {/* <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4> */}
+                    <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
+                    {
+                    feedback.image ?
+                    <div className="custom-blog-img">
+                      <a href={`${baseURL}/${feedback.image}`} target="_blank">
+                        <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                      </a>
+                    </div>
+                    :
+                    console.log("No image")
+                    }
+                    </Descriptions.Item>
+                  </Descriptions>
+                  <div style={{textAlign: "left"}}>
+                    <span style={{color:"grey", margin: "5px"}}>{feedback.created_at}</span>
                   </div>
-                  :
-                  console.log("No image")
-                  }
-                  </Descriptions.Item>
-                  <Descriptions.Item style={{textAlign: "right"}} className="custom-chat-style">
-                    <span style={{color:"#ffffff"}}>{feedback.created_at}</span>
-                  </Descriptions.Item>
-                </Descriptions>
+                  </Col>
+                  <Col span={1}>
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/41DB1yBEWIL.png" alt="new" style={{width: "100%", marginLeft: "10px"}}/>
+                  </Col>
+                </Row>
                 :
-                <Descriptions style={{backgroundColor: "rgb(167, 208, 112)", borderRadius:"10px 10px 10px 10px"}}>
-                  <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "10px 10px 10px 10px" }}>
-                  <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4>
-                  <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
-                  {
-                  feedback.image ?
-                  <div className="custom-blog-img">
-                    <a href={`${baseURL}/${feedback.image}`} target="_blank">
-                      <img src={`${baseURL}/${feedback.image}`} alt="new"/>
-                    </a>
-                  </div>
-                  :
-                  console.log("No image")
-                  }
-                  </Descriptions.Item>
-                  <Descriptions.Item style={{textAlign: "right"}} className="custom-chat-style">
-                    <span style={{color:"#ffffff"}}>{feedback.created_at}</span>
-                  </Descriptions.Item>
-                </Descriptions>
+                <Row className="custom-chat-roww">
+                  <Col span={1}>
+                    <img src="https://cdn0.iconfinder.com/data/icons/customicondesign-office6-shadow/256/doctor.png" alt="new" style={{width: "100%", marginRight: "10px"}}/>
+                  </Col>
+                  <Col span={11} className="custom-chat-block">
+                    <Descriptions style={{backgroundColor: "rgb(167, 208, 112)", borderRadius:"0px 10px 10px 10px"}}>
+                      <Descriptions.Item className="custom-blog-content-right" style={{ borderRadius: "0px 10px 10px 10px" }}>
+                      {/* <h4 style={{color:"#ffffff"}}>{feedback.user_name}:</h4> */}
+                      <div style={{color:"#ffffff", paddingLeft: "12px"}}>{feedback.message}</div>
+                      {
+                      feedback.image ?
+                      <div className="custom-blog-img">
+                        <a href={`${baseURL}/${feedback.image}`} target="_blank">
+                          <img src={`${baseURL}/${feedback.image}`} alt="new"/>
+                        </a>
+                      </div>
+                      :
+                      console.log("No image")
+                      }
+                      </Descriptions.Item>
+                    </Descriptions>
+                      <div style={{textAlign: "right"}}>
+                        <span style={{color:"grey", margin: "5px"}}>{feedback.created_at}</span>
+                      </div>
+                  </Col>
+                </Row>
             }
         </div>
         )} 
