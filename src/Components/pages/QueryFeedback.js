@@ -61,10 +61,12 @@ componentWillUnmount() {
           }
         )
         .then(res => {
+          debugger
           console.log(res);
           console.log(res.data);
           this.setState({ loading: false });
           this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
+          this.props.form.resetFields()
           message.success("Feedback given Sucessfully", 2);  
         })
         .catch(error => {
@@ -72,6 +74,7 @@ componentWillUnmount() {
             setTimeout(() => {
               this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
             }, 500);
+            this.props.form.resetFields()
             message.error('Something went wrong!', 2);
             event.preventDefault();
         });
@@ -133,6 +136,8 @@ componentWillUnmount() {
               <Col key="message"  span={16}>
                 <Form.Item name={`message`} label={`Doctor's Feedback`} style={{marginBottom: "0px"}}>
                   {getFieldDecorator(`message`, {
+                        initialValue: ""
+                    }, {
                     rules: [
                       {
                         required: true,
@@ -144,7 +149,9 @@ componentWillUnmount() {
               </Col>
             <Col key="image"  span={4} className="custom-chat-image">
                 <Form.Item name={`Image`}>
-                  {getFieldDecorator(`image`)(
+                  {getFieldDecorator(`image`, {
+                        initialValue: null
+                    })(
                     <Upload 
                       fileList={imageFile ? [imageFile] : []}
                       beforeUpload={f => {
