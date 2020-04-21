@@ -104,13 +104,13 @@ componentWillUnmount() {
             {query_spot.disease} 
             <UpdateDisease query_spot = {query_spot} />
           </Descriptions.Item>
+          <Descriptions.Item label="Scan Side">{query_spot.scan_side}</Descriptions.Item>
           <Descriptions.Item label="Scan Place">{query_spot.query_spot_place}</Descriptions.Item>
           <Descriptions.Item label="Message">{query_spot.message}</Descriptions.Item>
           <Descriptions.Item label="Created At">
             {query_spot.created_at}
           </Descriptions.Item>
           <Descriptions.Item label="Feedbacks">{query_spot.feedbacks.length}</Descriptions.Item>
-          <br></br>
         </Descriptions>
         </div>
 
@@ -157,6 +157,10 @@ componentWillUnmount() {
                       beforeUpload={f => {
                         this.onSelectImageFile(f);
                         return false;
+                      }}
+                      onRemove={file => {
+                        console.log(file.status);
+                        return true;
                       }}
                       showUploadList={{
                         showPreviewIcon: false,

@@ -17,30 +17,58 @@ const columns = [
   {
     title: 'Disease',
     dataIndex: 'disease',
+    key: "disease",
+    sorter: (a, b) => {
+        a = a.disease || '';
+        b = b.disease || '';
+        return a.localeCompare(b);
+    },
+  },
+  {
+    title: 'Scan Side',
+    dataIndex: 'scan_side',
+    key: "scan_side",
+    sorter: (a, b) => {
+        a = a.scan_side || '';
+        b = b.scan_side || '';
+        return a.localeCompare(b);
+    },
   },
   {
     title: 'Scan Place',
     dataIndex: 'query_spot_place',
+    key: "query_spot_place",
+    sorter: (a, b) => {
+        a = a.query_spot_place || '';
+        b = b.query_spot_place || '';
+        return a.localeCompare(b);
+    },
   },
     {
       title: 'Message',
       dataIndex: 'message',
-    },
-    {
-      title: 'images',
-      dataIndex: 'images',
-      render: (text, record) => (
-      <span>{text.length}</span>
-      ),
+      key: "message",
+      sorter: (a, b) => {
+          a = a.message || '';
+          b = b.message || '';
+          return a.localeCompare(b);
+      },
     },
     {
       title: 'Created At',
       dataIndex: 'created_at',
+      key: "created_at",
+      sorter: (a, b) => {
+          a = a.created_at || '';
+          b = b.created_at || '';
+          return a.localeCompare(b);
+      },
     },
     {
       title: 'Feedback',
       key: 'feedbacks',
       dataIndex: 'feedbacks',
+      sorter: (a, b) => a.feedbacks - b.feedbacks,
       render: feedbacks => (
         <span>
           {

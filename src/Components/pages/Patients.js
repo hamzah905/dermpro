@@ -18,6 +18,12 @@ const columns = [
     {
       title: 'Name',
       dataIndex: 'first_name',
+      key: "first_name",
+      sorter: (a, b) => {
+          a = a.first_name || '';
+          b = b.first_name || '';
+          return a.localeCompare(b);
+      },
       render: (text, record) => (
         <span>
           {(text ? text : '') + " " + (record.last_name ? record.last_name : '' )}
@@ -27,23 +33,58 @@ const columns = [
     {
       title: 'Email',
       dataIndex: 'email',
+      key: "email",
+      sorter: (a, b) => {
+          a = a.email || '';
+          b = b.email || '';
+          return a.localeCompare(b);
+      },
     },
     {
       title: 'Gender',
       dataIndex: 'gender',
+      key: "gender",
+      sorter: (a, b) => {
+          a = a.gender || '';
+          b = b.gender || '';
+          return a.localeCompare(b);
+      },
     },
     {
       title: 'DOB',
       dataIndex: 'dob',
+      key: "dob",
+      sorter: (a, b) => {
+          a = a.dob || '';
+          b = b.dob || '';
+          return a.localeCompare(b);
+      },
     },
     {
       title: 'Contact No',
       dataIndex: 'contact_no',
+      key: "contact_no",
+      sorter: (a, b) => {
+          a = a.contact_no || '';
+          b = b.contact_no || '';
+          return a.localeCompare(b);
+      },
+    },
+    {
+      title: 'Created At',
+      dataIndex: 'created_at',
+      key: "created_at",
+      sorter: (a, b) => {
+          a = a.created_at || '';
+          b = b.created_at || '';
+          return a.localeCompare(b);
+      },
     },
     {
       title: 'Feedback',
       key: 'pending_qs',
       dataIndex: 'pending_qs',
+      sorter: (a, b) => a.pending_qs - b.pending_qs,
       render: pending_qs => (
         <span>
           {

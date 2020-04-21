@@ -7,7 +7,13 @@ import Logo from "../.././Logo.png";
 class Navbar extends Component {
 	state = {
     current: 'mail',
-    visible: false
+	visible: false,
+	user: {}
+  }
+    
+  componentDidMount() {
+    const user = JSON.parse(localStorage.getItem('current_user'))
+    this.setState({ user: user });
   }
   showDrawer = () => {
     this.setState({
@@ -25,8 +31,13 @@ class Navbar extends Component {
     return (
         <nav className="menuBar">
         	<div className="logo">
+            { this.state.user.doctor_type === "derm_pro" ?
         		<a href="/">
-          		<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />DermPro</a>
+			<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />DermPro</a>
+			:
+			<a href="/" style={{fontSize: "23px", marginBottom: "4px"}}>
+			<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />WoundMend</a>
+			}
         	</div>
         	<div className="menuCon">
         		<div className="leftMenu">
