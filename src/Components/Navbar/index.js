@@ -36,7 +36,7 @@ class Navbar extends Component {
 			<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />DermPro</a>
 			:
 			<a href="/" style={{fontSize: "23px", marginBottom: "4px"}}>
-			<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />WoundMend</a>
+			<img src={Logo} className="App-logo" alt="logo" width="40" height="40" style={{margin: "0px 4px 3px 0px"}} />WoundMed</a>
 			}
         	</div>
         	<div className="menuCon">

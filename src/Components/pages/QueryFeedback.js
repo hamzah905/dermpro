@@ -1,4 +1,5 @@
 import React from "react";
+import ReactImageZoom from 'react-image-zoom';
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Logo from "../.././Logo.png";
@@ -64,7 +65,7 @@ componentWillUnmount() {
           debugger
           console.log(res);
           console.log(res.data);
-          this.setState({ loading: false });
+          this.setState({ loading: false, imageFile: null });
           this.props.history.push(`/query_spots/${parseInt(this.props.match.params.query_spot_id)}/feedback`);
           this.props.form.resetFields()
           message.success("Feedback given Sucessfully", 2);  
@@ -117,9 +118,16 @@ componentWillUnmount() {
         { query_spot.images.map((image, index)=>
           <div key = {index} className="custom-detail-section custom-blog-section">
             <div className="custom-spot-img">
-            <a href={`${baseURL}/${image}`} target="_blank">
-              <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/>
-            </a>
+            {/* <a href={`${baseURL}/${image}`} target="_blank"> */}
+            <ReactImageZoom
+              img={`${baseURL}/${image}`}
+              zoomScale={3}
+              height={400}
+              width={400}
+              transitionTime={0.5}
+            />
+              {/* <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/> */}
+            {/* </a> */}
             </div>
           </div>
         )}
@@ -164,7 +172,7 @@ componentWillUnmount() {
                       }}
                       showUploadList={{
                         showPreviewIcon: false,
-                        showRemoveIcon: false
+                        showRemoveIcon: true
                       }}
                     >
                       <Button
