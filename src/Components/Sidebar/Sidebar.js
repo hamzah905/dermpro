@@ -10,6 +10,7 @@ import Payment from '../pages/Payment'
 import PatientDetail from '../pages/PatientDetail'
 import QueryFeedback from '../pages/QueryFeedback'
 import UpdateProfile from '../pages/UpdateProfile'
+import PatientReminder from '../pages/PatientReminder'
 import Dashboard from '../pages/Dashboard'
 import { Layout, Breadcrumb, Menu, Icon } from 'antd';
 // const { SubMenu } = Menu;
@@ -87,6 +88,9 @@ class Sidebar extends Component {
                 </Route>
                 <Route path="/patients/:patient_id" exact>
                   <PatientDetail />
+                </Route>
+                <Route path="/patients/:patient_id/reminder" exact>
+                  <PatientReminder />
                 </Route>
                 <Route path="/patients" exact>
                   <Patients />

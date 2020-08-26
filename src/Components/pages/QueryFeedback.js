@@ -1,9 +1,13 @@
 import React from "react";
 import ReactImageZoom from 'react-image-zoom';
+import Lightbox from "react-awesome-lightbox";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Logo from "../.././Logo.png";
-import { Form, Row, Col, Input, Button, message, Spin, Upload, Descriptions } from "antd";
+import { Form, Row, Col, Input, Button, message, Spin, Upload, Modal, Descriptions } from "antd";
+import "react-awesome-lightbox/build/style.css";
 
 import UpdateDisease from "./UpdateDisease";
 import {baseURL} from "../../utils";
@@ -83,6 +87,27 @@ componentWillUnmount() {
     });
   };
 
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+
   render() {
     const { imageFile } = this.state;
     const { getFieldDecorator } = this.props.form;
@@ -98,9 +123,51 @@ componentWillUnmount() {
           <h2 className="page-title">SCAN DETAIL</h2>
         </div>
     </div>
-
-    <div className="custom-detail-section custom-job-section">
-        <Descriptions className="custom-desc">
+    <button onClick={this.props.history.goBack}
+    type="primary  primary-btnn"
+    className="custom-apply-search-btn"
+    htmlType="submit"
+    style={{ width: "100px", borderRadius: "3px", marginLeft: "86%", height: "33px", color: "#ffffff", cursor: "pointer"}}
+    >Back
+    </button>
+<Row>
+      <Col span={10}>
+      { query_spot.images.map((image, index)=>
+          <div key = {index} className="custom-detail-section custom-blog-section">
+            <div className="custom-spot-img">
+            {/* <a href={`${baseURL}/${image}`} target="_blank"> */}
+                        
+            {/* <ReactImageZoom
+              img={`${baseURL}/${image}`}
+              zoomScale={3}
+              height={400}
+              width={400}
+              transitionTime={0.5}
+            /> */}
+            <a onClick={this.showModal}>
+              <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image" />
+            </a>
+              <div>
+            {/* <a href={`${baseURL}/${image}`} onClick={this.showModal}></a> */}
+                <Modal
+                  title="Update Disease"
+                  visible={this.state.visible}
+                  onOk={this.handleOk}
+                  onCancel={this.handleCancel}
+                >
+              <div className="container">
+                <Lightbox image={`${baseURL}/${image}`} title="Image Title" onClose={this.handleCancel}	></Lightbox>
+              </div>
+            </Modal>
+            </div>
+            {/* </a> */}
+            </div>
+          </div>
+        )}
+      </Col>
+     <Col span={14}>
+      <div className="custom-detail-section custom-job-section">
+        <Descriptions className="custom-desc" column={2}>
           <Descriptions.Item label="Disease" className= "inline-desc">
             {query_spot.disease} 
             <UpdateDisease query_spot = {query_spot} />
@@ -113,24 +180,11 @@ componentWillUnmount() {
           </Descriptions.Item>
           <Descriptions.Item label="Feedbacks">{query_spot.feedbacks.length}</Descriptions.Item>
         </Descriptions>
-        </div>
+      </div>
+     </Col> 
+        
+</Row>
 
-        { query_spot.images.map((image, index)=>
-          <div key = {index} className="custom-detail-section custom-blog-section">
-            <div className="custom-spot-img">
-            {/* <a href={`${baseURL}/${image}`} target="_blank"> */}
-            <ReactImageZoom
-              img={`${baseURL}/${image}`}
-              zoomScale={3}
-              height={400}
-              width={400}
-              transitionTime={0.5}
-            />
-              {/* <img src={`${baseURL}/${image}`} alt="new" className="custom-query-spot-image"/> */}
-            {/* </a> */}
-            </div>
-          </div>
-        )}
         </div>
     <Spin tip="Loading..." className="spiner" spinning={this.state.loading}>
     

@@ -1,10 +1,10 @@
 import React from "react";
 import axios from 'axios';
 import {
-     withRouter
+     withRouter, Link
   } from "react-router-dom";
 
-import { Row, Col, Descriptions, Spin } from 'antd';
+import { Row, Col, Descriptions, Spin, Button } from 'antd';
 import Logo from "../.././Logo.png";
 import {baseURL} from "../../utils";
 import QuerySpotTable from './QuerySpotTable'
@@ -60,7 +60,12 @@ class PatitenDetail extends React.Component {
         <br></br>
         <Row>
             <Col span={24}>
+              <Row style={{display: "flex"}}>
                 <h3>Patient Scans:</h3>
+                <Button className="custom-apply-search-btn" style={{width: "10%", fontSize: "small", marginLeft: "72%"}}>
+                  <Link to={`/patients/${parseInt(this.props.match.params.patient_id)}/reminder`} style={{color: "#ffffff"}} >Reminder</Link>
+                </Button>
+              </Row>
               <div className="custom-bottom-btn">
                 <QuerySpotTable query_spots={patient.query_spots} patient_id={patient.id} />
               </div>

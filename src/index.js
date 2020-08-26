@@ -22,6 +22,9 @@ ReactDOM.render(
             <Route path="/patients/:patient_id" exact>
                 <App />
             </Route>
+            <Route path="/patients/:patient_id/reminder" exact>
+                <App />
+            </Route>
             <Route path="/patients" exact>
                 <App />
             </Route>
